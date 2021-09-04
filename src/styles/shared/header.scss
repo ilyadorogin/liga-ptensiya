@@ -1,3 +1,35 @@
+@import "variables";
+
 .header {
   padding: 14px 10px;
+
+  &.header-orange {
+    background: $color-orange;
+
+    .header-orange__btn-img {
+      svg {
+        display: block;
+      }
+    }
+    .header-white__btn-img {
+      svg {
+        display: none;
+      }
+    }
+  }
+
+  &.header-white {
+    background: #fff;
+
+    .header-orange__btn-img {
+      svg {
+        display: none;
+      }
+    }
+    .header-white__btn-img {
+      svg {
+        display: block;
+      }
+    }
+  }
 }

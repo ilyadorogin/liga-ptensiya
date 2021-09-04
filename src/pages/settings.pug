@@ -11,17 +11,99 @@ html(lang="uk")
     link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
 
 
-  body#faq
+  body#settings
 
     +header('settings-back-btn', true)
 
     main.with-footer
-      .d-flex.flex-column.align-items-center
-        h2.text-19-16.color-6B6B6B.mt-62.mb-48 Налаштування
-        .list
-          .list__item
-            .list__item__prefix
-              .ic_side-settings
+      #settings-main
+        .settings.d-flex.flex-column.align-items-center
+          h1.text-19-16.color-6B6B6B.mt-62.mb-48 Налаштування
+          .list.w-100
+            .list__item
+              .list__item__prefix
+                .ic_phone
+              .list__item__label Системні налаштування
+              .list__item__suffix
+                .ic_right
+            .list__item
+              .list__item__prefix
+                .ic_side-settings
+              .list__item__label Налаштування способів оплати
+              .list__item__suffix
+                .ic_right
+
+      #settings-page__0.d-none
+        .settings.d-flex.flex-column.align-items-center
+          h2.text-16-16.color-6B6B6B.mt-62.mb-48 Cистемні налаштування
+          .list.w-100
+            .list__item
+              .list__item__prefix
+                .ic_faceid
+              .list__item__label Дозволити Face ID
+              .list__item__suffix
+                input.apple-switch(id='allow-faceid' name='allow-faceid' type='checkbox')
+            .list__item
+              .list__item__prefix
+                .ic_notification
+              .list__item__label Дозволити сповіщення
+              .list__item__suffix
+                input.apple-switch(id='allow-notifications' name='allow-notifications' type='checkbox')
+            .list__item
+              .list__item__prefix
+                .ic_share
+              .list__item__label Розповісти друзям
+            .list__item
+              .list__item__prefix
+                .ic_logout
+              .list__item__label Вийти
+
+
+
+      #settings-page__1.d-none
+        .settings.d-flex.flex-column.align-items-center
+          h2.text-16-16.color-6B6B6B.mt-62.mb-48 Налаштування cпособів оплати
+          +divider('Збережені карти', 'mb-34')
+
+          form.card-list
+            label.card(for='card-1')
+              .card__content
+                .radio-button
+                  input.radio-button__control(type='radio' name="settings-cards" id="card-1" value="card-1")
+                  .radio-button__checkmark
+                .card__content__card-icon.ic_card-visa
+                .card__content__info
+                  .card__content__info__card-name Visa Platinum
+                  .card__content__info__card-mask ****3456
+              button.card__right-button(type='button')
+                .ic_delete
+                .text-12-16.color-orange.mt-8 Видалити
+            label.card(for='card-2')
+              .card__content
+                .radio-button
+                  input.radio-button__control(type='radio' name="settings-cards" id="card-2" value="card-2")
+                  .radio-button__checkmark
+                .card__content__card-icon.ic_card-mastercard
+                .card__content__info
+                  .card__content__info__card-name Master Card
+                  .card__content__info__card-mask ****6700
+              button.card__right-button(type='button')
+                .ic_delete
+                .text-12-16.color-orange.mt-8 Видалити
+            label.card(for='card-3')
+              .card__content
+                .radio-button
+                  input.radio-button__control(type='radio' name="settings-cards" id="card-3" value="card-3")
+                  .radio-button__checkmark
+                .card__content__card-icon.ic_card-mastercard
+                .card__content__info
+                  .card__content__info__card-name Master Card
+                  .card__content__info__card-mask ****6578
+              button.card__right-button(type='button')
+                .ic_delete
+                .text-12-16.color-orange.mt-8 Видалити
+
+          +divider('Інші способи оплати', 'divider--white mt-48 mb-40')
 
 
 
@@ -32,5 +114,6 @@ html(lang="uk")
 
   script(src="../scripts/jquery-3.6.0.min.js")
   script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/jquery-listswipe.js")
   script(src="../scripts/index.js")
 

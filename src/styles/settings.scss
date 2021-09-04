@@ -2,9 +2,19 @@
 
 .settings {
 
+  .list__item {
+    max-height: 58px;
+
+    &__label {
+      font-size: 15px;
+      line-height: 16px;
+      color: #656565;
+    }
+  }
 }
 
 
 .mt-62 {
   margin-top: 62px;
 }
+

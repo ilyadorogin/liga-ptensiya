@@ -2,6 +2,7 @@
 @import "variables";
 @import "fields";
 @import "icons";
+@import "cards";
 
 @import "header";
 @import "footer";
@@ -27,7 +28,8 @@ main {
 
   &.with-footer {
     height: calc(100% - 49px - 60px);
-    overflow: scroll;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
 }
 
@@ -58,7 +60,10 @@ p, h1, h2, h3, h4 {
   line-height: 16px;
 }
 
-
+.text-12-16 {
+  font-size: 12px;
+  line-height: 16px;
+}
 .text-13-16 {
   font-size: 13px;
   line-height: 16px;
@@ -228,7 +233,7 @@ p, h1, h2, h3, h4 {
   }
 
   &--white {
-    &__text {
+    .divider__text {
       background-color: #fff;
       color: $color-979797;
       border: 1px solid $color-979797;
@@ -245,6 +250,9 @@ p, h1, h2, h3, h4 {
     padding: 20px 0;
 
     &__prefix {
+      display: flex;
+      justify-content: center;
+      min-width: 24px;
       margin-right: 16px;
     }
     &__label {
@@ -253,6 +261,8 @@ p, h1, h2, h3, h4 {
       line-height: 20px;
     }
     &__suffix {
+      display: flex;
+      align-items: center;
       margin-left: auto;
       padding-left: 16px;
     }

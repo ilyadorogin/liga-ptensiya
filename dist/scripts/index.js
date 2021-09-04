@@ -136,7 +136,7 @@ $(function () {
       $(`#${backBtnId}`).on('click', function () {
         if (listPage.hasClass('d-none')) {
           listPage.removeClass('d-none');
-          $(`[id^=${backBtnId}]`).addClass('d-none');
+          $(`[id^=${pagesIdPrefix}]`).addClass('d-none');
         } else {
           window.history.back();
         }
@@ -175,7 +175,28 @@ $(function () {
   }
 
   // settings
-  // listDefault('');
+  listDefault('settings-main', 'settings-page__', 'settings-back-btn');
+
+  // settings
+  if ($('#settings').length) {
+    const cardList = $('.card-list');
+    cardList.listSwipe({
+      leftAction: false,
+    });
+
+    const cards = $('#settings .card-list .card');
+    cards.each(function () {
+      const card = $(this);
+      const cardInput = $(this).find('input');
+
+      cardInput.change(function () {
+        cards.removeClass('active');
+        card.addClass('active');
+        // console.log($(this).closest('.card'));
+
+      })
+    })
+  }
 
 
 
