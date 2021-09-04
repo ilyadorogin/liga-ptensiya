@@ -1,0 +1,106 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title profile
+    link(rel="stylesheet" type="text/css" href="../styles/profile.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+    //link(rel="stylesheet" type="text/css" href="../styles/jquery-ui.min.css")
+
+
+  body#profile
+
+    +header(null, true)
+
+
+
+    main.with-footer.profile.d-flex.flex-column
+      #profile-tabs.profile__tabs-content
+
+        #profile-tab-1
+          .d-flex.flex-column.align-items-center
+            .profile__logo.mt-40
+              +logo(145)
+            .profile__balance#balance 100 000. 00 ₴
+            .text-16-16.color-6B6B6B.mt-32 ВНФП Взаємодопомога
+            .text-16-16.color-6B6B6B.mt-8 Індивідуальна пенсійна схема
+            +divider('Cума поповнення', '', 'margin-top: 53px; margin-bottom: 48px')
+            .text-13-20.color-858585.mb-24.text-center.mw-265 Введіть суму на яку плануєте поповнити свій пенсійний рахунок
+
+            .profile__sum
+              .input-group.w-100(id='sum_inputGroup')
+                input.input-group__control(name='sum', id='sum', type='tel', value=1000)
+                .suffix.color-orange.text-13-16 грн.
+
+        #profile-tab-2
+          .d-flex.flex-column.align-items-center.pl-16.pr-16
+            .profile__logo.mt-20
+              +logo(122)
+            +divider('Спосіб оплати', 'mt-44 mb-40')
+            p.text-13-20.color-858585 Оберіть спосіб поповнення рахунку
+            form.profile__cards.mt-20
+              .profile__cards__card
+                label.profile__cards__card__label(for='applepay')
+                  .profile__cards__card__icon
+                    .ic_card-apple-pay
+                  span.profile__cards__card__name Apple Pay
+                  input.profile__cards__card__control(type='radio' id="applepay" name="profile-cards" value="applepay")
+                  .profile__cards__card__checkmark
+              .profile__cards__card
+                label.profile__cards__card__label(for='googlepay')
+                  .profile__cards__card__icon
+                    .ic_card-google-pay
+                  span.profile__cards__card__name Google Pay
+                  input.profile__cards__card__control(type='radio' id="googlepay" name="profile-cards" value="googlepay")
+                  .profile__cards__card__checkmark
+              .profile__cards__card
+                label.profile__cards__card__label(for='card1')
+                  .profile__cards__card__icon
+                    .ic_card-card
+                  span.profile__cards__card__name АТ Банківська карта
+                  input.profile__cards__card__control(type='radio' id="card1" name="profile-cards" value="card1")
+                  .profile__cards__card__checkmark
+            button.clear-button.mt-32.color-orange.text-14-16.align-self-start Додати банківську карту
+
+        #profile-tab-3
+          .d-flex.flex-column.align-items-center
+            h1.text-24-30.color-orange.mw-254.mt-84.mb-48 Поповнення пенсійного рахунку успішно виконано!
+            img(src='../assets/images/money-success.gif', width='200px', height='200px')
+
+
+        <ul class="d-none"><li><a href="#profile-tab-1"></a></li><li><a href="#profile-tab-2"></a></li><li><a href="#profile-tab-3"></a></li></ul>
+
+
+      ul.profile__tabs.mt-auto
+        li.profile__tabs__link.active
+          .profile__tabs__link__number 1
+          .ic_check--white
+
+        .profile__tabs__divider
+
+        li.profile__tabs__link
+          .profile__tabs__link__number 2
+          .ic_check--white
+
+        .profile__tabs__divider
+
+        li.profile__tabs__link
+          .profile__tabs__link__number 3
+          .ic_check--white
+
+      button#profile-tabs-next-btn.clear-button.color-green.text-16-16.mt-24.align-self-end.mr-24.mb-40(type='button') Далі
+      a#profile-tabs-finish-btn.d-none.clear-button.color-green.text-16-16.mt-24.align-self-center.mb-40(href='profile.html') Перейти в особистий кабінет
+
+    +footer(3)
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/index.js")
+

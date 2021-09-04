@@ -1,0 +1,135 @@
+include partial/shared
+
+-
+  var docs = [
+    {
+      label: 'Адміністратор пенсійних фондів Ліга Пенсія',
+      items: [
+        {label: 'Статут', link: ''},
+        {label: 'Свідоцтво про реєстрацію фінансової установи', link: ''},
+        {label: 'Виписка з ЄДР', link: ''},
+        {label: 'Загальні відомості', link: ''},
+        {label: 'Внутрішнє положення про здійснення адміністрування НПФ', link: ''},
+        {label: 'Захист прав споживачів', link: ''},
+        {label: 'Тарифи ', link: ''},
+      ],
+    },
+    {
+      label: 'ВНПФ Взаємодопомога',
+      items: [
+        {label: 'Шаблон пенсійного контракту', link: ''},
+        {label: 'Пам‘ятка з роз‘ясненням основних положень пенсійного контракту', link: ''},
+        {label: 'Пенсійна схема Індивідуальна', link: ''},
+        {label: 'Пенсійна схема Сімейна', link: ''},
+        {label: 'Інвестиційна політика ', link: ''},
+        {label: 'Витяг зі статуту', link: ''},
+      ],
+      additionalLists: [
+        {
+          title: 'Установчі документи',
+          items: [
+            {label: 'Статут', link: ''},
+            {label: 'Свідоцтво про державну реєстрацію юридичної особи', link: ''},
+            {label: 'Свідоцтво про реєстрацію фінансової установи', link: ''},
+            {label: 'Виписка з ЄДР', link: ''},
+            {label: 'Загальні відомості про Фонд', link: ''},
+          ]
+        }
+      ]
+    },
+    {
+      label: 'ВНПФ Гарант-пенсія',
+      items: [
+        {label: 'Шаблон пенсійного контракту', link: ''},
+        {label: 'Пам‘ятка з роз‘ясненням основних положень пенсійного контракту', link: ''},
+        {label: 'Пенсійна схема Індивідуальна', link: ''},
+        {label: 'Пенсійна схема Сімейна', link: ''},
+        {label: 'Інвестиційна політика ', link: ''},
+        {label: 'Витяг зі статуту', link: ''},
+
+      ],
+      additionalLists: [
+        {
+          title: 'Установчі документи',
+          items: [
+            {label: 'Статут', link: ''},
+            {label: 'Свідоцтво про державну реєстрацію юридичної особи', link: ''},
+            {label: 'Свідоцтво про реєстрацію фінансової установи', link: ''},
+            {label: 'Виписка з ЄДР', link: ''},
+            {label: 'Загальні відомості про Фонд', link: ''},
+          ]
+        }
+      ]
+    },
+  ]
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title documents
+    link(rel="stylesheet" type="text/css" href="../styles/documents.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+
+
+  body#documents
+
+    +header('documents-back-btn', true)
+
+    main.with-footer
+      // docs page
+      #docs-list-page.documents
+        .documents__logo.mt-32.text-center
+          +logo(122)
+        +divider('Документи', 'mt-44 mb-32')
+
+        .list(data-listname='docs')
+          for doc, i in docs
+            .list__item(data-list-item-index=i)
+              .list__item__prefix
+                .ic_doc
+              .list__item__label= doc.label
+              .list__item__suffix
+                .ic_right
+
+
+      // doc inner lists pages
+      for doc, i in docs
+        - var docPageId = 'doc-page__'+i
+        .documents.d-none(id=docPageId)
+          .documents__logo.mt-32.text-center
+            +logo(122)
+
+          h2.text-15-20.color-orange.mt-44.mb-28= doc.label
+          .list
+            for item in doc.items
+              a(href=item.link)
+                .list__item
+                  .list__item__label= item.label
+                  .list__item__suffix
+                    .ic_right
+
+
+          if doc.additionalLists
+            for additionalList in doc.additionalLists
+              h2.text-15-20.color-656565.text-center.mt-44.mb-20= additionalList.title
+              .list
+                for item in additionalList.items
+                  a(href=item.link)
+                    .list__item
+                      .list__item__label= item.label
+                      .list__item__suffix
+                        .ic_right
+
+
+    +footer(1)
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/index.js")
+

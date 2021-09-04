@@ -1,0 +1,17 @@
+mixin input(id, label, type, iconName)
+  .input-group.w-100(id=id + '_inputGroup')
+    label(for=id).input-group__label= label
+    .has-float-label
+      input.input-group__control(name=id, id=id, type=type)
+    div(class='suffix ic_' + (iconName ? iconName : 'none'))
+
+mixin checkbox(id, label)
+  .checkbox-group
+    label.checkbox-group__label.mb-0
+      span Даю згоду на обробку особистих даних
+      input.checkbox-group__control(type='checkbox')
+      span.checkbox-group__checkmark
+
+
+
+

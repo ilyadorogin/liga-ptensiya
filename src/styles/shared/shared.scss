@@ -1,0 +1,308 @@
+@import "fonts";
+@import "variables";
+@import "fields";
+@import "icons";
+
+@import "header";
+@import "footer";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'SFProText-Regular', sans-serif;
+  color: #646466;
+  height: 100vh;
+}
+
+main {
+  padding: 0 16px;
+
+  &.with-header {
+    height: calc(100% - 49px);
+  }
+
+  &.with-footer {
+    height: calc(100% - 49px - 60px);
+    overflow: scroll;
+  }
+}
+
+a, a:hover, a:visited, a:focus, a:active {
+  text-decoration: none;
+  //color: inherit;
+  cursor: pointer;
+}
+
+p, h1, h2, h3, h4 {
+  margin: 0;
+}
+
+// fonts
+.text-input-placeholder {
+  color: $color-979797B0;
+  font-size: 14px;
+  line-height: 16px;
+}
+.text-input-label {
+  color: $color-979797B0;
+  font-size: 13px;
+  line-height: 16px;
+}
+.text-h1 {
+  color: $color-6B6B6B;
+  font-size: 19px;
+  line-height: 16px;
+}
+
+
+.text-13-16 {
+  font-size: 13px;
+  line-height: 16px;
+}
+.text-13-18 {
+  font-size: 13px;
+  line-height: 18px;
+}
+.text-13-20 {
+  font-size: 13px;
+  line-height: 20px;
+}
+.text-14-20 {
+  font-size: 14px;
+  line-height: 20px;
+}
+.text-14-16 {
+  font-size: 14px;
+  line-height: 16px;
+}
+.text-15-20 {
+  font-size: 15px;
+  line-height: 20px;
+}
+.text-16-16 {
+  font-size: 16px;
+  line-height: 16px;
+}
+.text-19-16 {
+  font-size: 19px;
+  line-height: 16px;
+}
+.text-24-30 {
+  font-size: 24px;
+  line-height: 30px;
+}
+//
+
+// colors
+.color {
+  &-6B6B6B {
+    color: $color-6B6B6B;
+  }
+
+  &-858585 {
+    color: $color-858585;
+  }
+
+  &-81765E {
+    color: $color-81765E;
+  }
+
+  &-979797B0 {
+    color: $color-979797B0;
+  }
+
+  &-656565 {
+    color: #656565;
+  }
+
+  &-white {
+    color: #fff;
+  }
+
+  &-orange {
+    color: $color-orange
+  }
+
+  &-green {
+    color: $color-green
+  }
+
+  &-white-main {
+    color: $color-white-main
+  }
+
+  &-grey-secondary {
+    color: $color-grey-secondary
+  }
+
+  &-error {
+    color: $color-error
+  }
+}
+
+.bg {
+  &-orange {
+    background-color: $color-orange;
+  }
+}
+// ====================
+
+// buttons
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 46px;
+  width: 100%;
+  max-width: 245px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+
+  &:not([disabled]) {
+    background: $color-orange;
+    box-shadow: 1px 4px 6px rgba(17, 94, 103, 0.18);
+    color: #fff;
+
+    :active {
+      background: #F2A900;
+      box-shadow: inset 1px 4px 8px rgba(201, 143, 10, 0.75);
+      color: #FFFFFF4D;
+    }
+  }
+
+  &[disabled] {
+    background-color: #DAD8D8;
+    color: #787878;
+  }
+}
+
+.clear-button {
+  border: none;
+  text-align: left;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
+//
+
+
+// divider
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  &__line {
+    flex: 1;
+    height: 1px;
+    background-color: rgba(151, 151, 151, 0.35);;
+  }
+
+  &__text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 24px;
+    min-width: 169px;
+
+    margin-left: 7px;
+    margin-right: 7px;
+    padding-left: 20px;
+    padding-right: 16px;
+
+    background-color: $color-orange;
+    border-radius: 10px;
+
+    color: #fff;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &--white {
+    &__text {
+      background-color: #fff;
+      color: $color-979797;
+      border: 1px solid $color-979797;
+    }
+  }
+}
+//
+
+// list
+.list {
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+
+    &__prefix {
+      margin-right: 16px;
+    }
+    &__label {
+      color: $color-858585;
+      font-size: 15px;
+      line-height: 20px;
+    }
+    &__suffix {
+      margin-left: auto;
+      padding-left: 16px;
+    }
+  }
+
+}
+//
+
+.accordion {
+  width: 100%;
+
+
+  .ui-accordion {
+    &-header {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      padding: 20px 20px 10px 0;
+
+      font-size: 15px;
+      line-height: 20px;
+      color: $color-6B6B6B;
+
+      &-icon {
+        position: absolute;
+        top: calc(50% + 5px - 4px);
+        right: 0;
+
+        width: 15px;
+        height: 8px;
+
+        background-image: url('../assets/images/icons/ic_bottom.svg');
+      }
+    }
+
+    &-content {
+      height: auto !important;
+      padding: 15px 0 20px;
+
+      font-size: 15px;
+      line-height: 22px;
+      color: $color-858585;
+
+      p:not(:last-child) {
+        margin-bottom: 16px;
+      }
+    }
+
+  }
+}
+
+

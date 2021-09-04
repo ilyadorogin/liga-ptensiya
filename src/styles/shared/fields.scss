@@ -1,0 +1,312 @@
+@import "variables";
+
+.input-group {
+  height: 45px;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+
+  border: 1px solid rgba(196, 196, 196, 0.31);
+  border-radius: 7px;
+  border-left-width: 6px;
+
+  margin-top: 40px;
+
+  &__label {
+    pointer-events: none;
+    cursor: text;
+
+    position: absolute;
+    top: 13px;
+    left: 11px;
+
+    padding: 0 4px;
+
+    color: $color-979797B0;
+    font: normal normal 14px/20px GothamPro-Regular, sans-serif;
+
+    background: #fff;
+
+    transition: all .4s cubic-bezier(.25,.8,.25,1);
+  }
+
+  &__control {
+    flex: 1 1 auto;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin: 0;
+    padding: 14px 13px;
+
+    font-family: GothamPro-Regular, sans-serif;
+    vertical-align: middle;
+    text-align: inherit;
+
+    background: 0 0;
+    border: none;
+    outline: 0;
+
+    color: #F2A900;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: none !important;
+    }
+  }
+
+  //&:focus {
+  //  .input-group__label {
+  //    top: -10px;
+  //    left: 7px;
+  //
+  //    font-size: 13px;
+  //    line-height: 16px;
+  //  }
+  //}
+
+  &.active {
+    .input-group__label {
+      top: -24px;
+      left: 7px;
+
+      font-size: 13px;
+      line-height: 16px;
+    }
+  }
+
+  &.error {
+    .input-group__control {
+      color: $color-error;
+    }
+
+    .input-group__error {
+      display: block;
+    }
+  }
+
+  &__error {
+    margin-top: 10px;
+    display: block;
+  }
+
+  .suffix {
+    margin-right: 14px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    //width: 24px;
+    //height: 24px;
+
+    .ic_none {
+      margin: 0;
+      width: 0;
+      height: 0;
+    }
+  }
+}
+
+
+
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+
+  min-height: 24px;
+
+  &__label {
+    cursor: pointer;
+    display: block;
+
+    position: relative;
+
+    height: 100%;
+
+    color: $color-81765E;
+    opacity: 0.5;
+    font-size: 13px;
+    //line-height: 18px;
+    padding-left: 32px;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &__control {
+    opacity: 0;
+    cursor: pointer;
+
+    position: absolute;
+
+    height: 0;
+    width: 0;
+
+    &:checked {
+      & + .checkbox-group__checkmark {
+        border-color: rgba(242, 169, 0, 0.8);
+
+        &:after {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__checkmark {
+    position: absolute;
+    top: 50%;
+    left: 0;
+
+    width: 24px;
+    height: 24px;
+
+    border: 1px solid rgba(242, 169, 0, 0.8);
+    border-radius: 4px;
+
+    transform: translateY(-50%);
+
+    &:after {
+      content: '';
+      display: none;
+
+      position: absolute;
+      top: 3px;
+      left: 4px;
+
+      width: 13px;
+      height: 9px;
+
+      border-left: 1px solid rgba(242, 169, 0, 0.8);
+      border-bottom: 1px solid rgba(242, 169, 0, 0.8);
+
+      -webkit-transform: rotate(315deg);
+      -ms-transform: rotate(315deg);
+      transform: rotate(315deg);
+    }
+  }
+}
+
+// вирівнювання по верхньому краю
+.checkbox-group {
+  &.checkbox-group__top {
+    align-items: flex-start;
+  }
+
+  &.checkbox-group__top &__checkmark {
+    top: 2px;
+
+    transform: translateY(0);
+  }
+
+  // прибрати висоту
+  &.checkbox-group__no-height {
+    min-height: auto;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// float label
+
+@mixin float-label {
+  label, > span {
+    position: absolute;
+    left: 12px;
+    top: -8px;
+    max-height: 21px;
+    cursor: text;
+    font-size: 75%;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    opacity: 1;
+    transition: all .2s;
+    background: #ffffff;
+    padding: 0 4px;
+    color: #979797B0;
+    @content;
+  }
+}
+
+@mixin float-label-input {
+  &::placeholder {
+    opacity: 1;
+    transition: all .2s;
+    color: #979797B0;
+  }
+
+  // дублируется без :-webkit-autofill для Firefox
+  &:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+  &:not(:-webkit-autofill):placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+  //
+}
+
+@mixin float-label-scaled {
+  // дублируется без :-webkit-autofill для Firefox
+  &:placeholder-shown:not(:focus)  + * {
+    font-size: 14px;
+    color: #979797B0;
+    pointer-events: none;
+    @content;
+  }
+  &:not(:-webkit-autofill):placeholder-shown:not(:focus)  + * {
+    font-size: 14px;
+    color: #979797B0;
+    pointer-events: none;
+    @content;
+  }
+  //
+}
+
+.has-float-label {
+  position: relative;
+  width: 100%;
+
+  @include float-label;
+
+  input {
+    @include float-label-input;
+    @include float-label-scaled {
+      top: 12px;
+      left: 12px;
+
+      //.prefix ~ & {
+      //  padding-left: 40px;
+      //}
+      //.suffix ~ & {
+      //  padding-right: 40px;
+      //}
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+

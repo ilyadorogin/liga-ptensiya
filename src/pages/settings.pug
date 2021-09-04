@@ -1,0 +1,36 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title faq
+    link(rel="stylesheet" type="text/css" href="../styles/settings.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+
+
+  body#faq
+
+    +header('settings-back-btn', true)
+
+    main.with-footer
+      .d-flex.flex-column.align-items-center
+        h2.text-19-16.color-6B6B6B.mt-62.mb-48 Налаштування
+        .list
+          .list__item
+            .list__item__prefix
+              .ic_side-settings
+
+
+
+    +footer(0)
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/index.js")
+

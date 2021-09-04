@@ -1,0 +1,5 @@
+mixin divider(text, _class, style)
+  div(class='divider '+(_class ? _class : ''), style=style)
+    .divider__line
+    .divider__text= text
+    .divider__line

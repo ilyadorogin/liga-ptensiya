@@ -1,0 +1,30 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title reset password
+    link(rel="stylesheet" type="text/css" href="../styles/login.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+
+
+  body#reset-password-success
+
+    +header(null)
+
+
+    main
+      .d-flex.flex-column.align-items-center.w-100.h-100.justify-content-around
+        .d-flex.flex-column.w-100.align-items-center
+          h1.text-h1.color-white Ваша реєстрація <br> прошла успішно!
+          .rounded-circle
+          .p.text-14-20.color-858585.text-center.mw-318 Ліга Пенсія тепер завжди поряд і в зручний для Вас час. Накопичувати та отримувати пенсію стало ще простіше разом з нами.
+
+        a.btn(href="profile.html") Перейти у застосунок
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/index.js")

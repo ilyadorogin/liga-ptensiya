@@ -1,0 +1,39 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title login
+    link(rel="stylesheet" type="text/css" href="../styles/login.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+
+
+  body#registration
+
+    +header(null)
+
+
+    main
+      .d-flex.flex-column.align-items-center.w-100.h-100.justify-content-around
+        div.d-flex.flex-column.w-100.align-items-center
+          h1.text-h1 Реєстрація
+          .login__inputs-container
+            +input('email', 'E-mail', 'text')
+            +input('phone', 'phone', 'text')
+            +input('password', 'Пароль', 'password', 'eye-hide')
+            +input('passwordCheck', 'Підтвердіть пароль', 'password', 'eye-hide')
+            .mt-32.pl-12.pr-12
+              +checkbox('accept', 'Даю згоду на обробку особистих даних')
+
+        a.btn(href='registration-code.html') Зареєструватись
+
+        .d-flex.w-100.align-items-center.justify-content-center
+          p.color-858585.text-14-16.mr-28 Вже маєте акаунт?
+          a.text-14-16.color-orange.fw-bold(href='login.html') Увійти
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/index.js")
+

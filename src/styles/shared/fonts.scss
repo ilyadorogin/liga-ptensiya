@@ -1,0 +1,40 @@
+$fonts-location: '../assets/fonts/';
+
+@font-face {
+  font-family: 'SFProText-Regular';
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: local('SF Pro Text'), local('SFProText-Regular'),
+  url('#{$fonts-location}SFProText-Regular.ttf'),
+}
+
+@font-face {
+  font-family: 'SFProText-Medium';
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: local('SF Pro Text Medium'), local('SFProText-Medium'),
+  url('#{$fonts-location}SFProText-Medium.ttf'),
+}
+
+@font-face {
+  font-family: 'SFProText-Bold';
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: local('SF Pro Text Bold'), local('SFProText-Bold'),
+  url('#{$fonts-location}SFProText-Bold.ttf'),
+}
+
+@font-face {
+  font-family: 'SFProText-Semibold';
+  font-style: normal;
+  font-weight: normal;
+  font-display: fallback;
+  src: local('SF Pro Text Semibold'), local('SFProText-Semibold'),
+  url('#{$fonts-location}SFProText-Semibold.ttf'),
+}
+
+
+
