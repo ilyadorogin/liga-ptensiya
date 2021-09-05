@@ -94,7 +94,9 @@ $(function () {
     }
   }
 
-  // profile tabs
+  // profile
+
+
   const profileTabsContainer = $('#profile-tabs');
   if (profileTabsContainer.length) {
     const nextBtn = $('#profile-tabs-next-btn');
@@ -120,10 +122,10 @@ $(function () {
     })
   }
 
-  const listDefault = (containerId, pagesIdPrefix, backBtnId) => {
+  function listDefault(containerId, listItemClass, pagesIdPrefix, backBtnId) {
     const listPage = $(`#${containerId}`);
     if (listPage.length) {
-      const items = $(`#${containerId} .list__item`);
+      const items = $(`#${containerId} .${listItemClass}`);
 
       items.each(function (i) {
         const itemPage = $(`#${pagesIdPrefix}${i}`);
@@ -145,7 +147,7 @@ $(function () {
   }
 
   // docs
-  listDefault('docs-list-page', 'doc-page__', 'documents-back-btn');
+  listDefault('docs-list-page', 'list__item', 'doc-page__', 'documents-back-btn');
 
   // faq
   const faqsListPage = $('#faq-list-page');
@@ -175,16 +177,15 @@ $(function () {
   }
 
   // settings
-  listDefault('settings-main', 'settings-page__', 'settings-back-btn');
-
-  // settings
   if ($('#settings').length) {
+    listDefault('settings-main', 'list__item', 'settings-page__', 'settings-back-btn');
+
     const cardList = $('.card-list');
     cardList.listSwipe({
       leftAction: false,
     });
 
-    const cards = $('#settings .card-list .card');
+    const cards = $('#settings .card-list .card, #settings .settings__other-pay-methods .settings__other-pay-methods__item');
     cards.each(function () {
       const card = $(this);
       const cardInput = $(this).find('input');

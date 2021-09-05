@@ -61,14 +61,14 @@ html(lang="uk")
 
 
       #settings-page__1.d-none
-        .settings.d-flex.flex-column.align-items-center
+        form.settings.d-flex.flex-column.align-items-center(name='settings-cards')
           h2.text-16-16.color-6B6B6B.mt-62.mb-48 Налаштування cпособів оплати
           +divider('Збережені карти', 'mb-34')
 
-          form.card-list
+          .card-list
             label.card(for='card-1')
               .card__content
-                .radio-button
+                .radio-button.radio-button--20
                   input.radio-button__control(type='radio' name="settings-cards" id="card-1" value="card-1")
                   .radio-button__checkmark
                 .card__content__card-icon.ic_card-visa
@@ -80,7 +80,7 @@ html(lang="uk")
                 .text-12-16.color-orange.mt-8 Видалити
             label.card(for='card-2')
               .card__content
-                .radio-button
+                .radio-button.radio-button--20
                   input.radio-button__control(type='radio' name="settings-cards" id="card-2" value="card-2")
                   .radio-button__checkmark
                 .card__content__card-icon.ic_card-mastercard
@@ -92,7 +92,7 @@ html(lang="uk")
                 .text-12-16.color-orange.mt-8 Видалити
             label.card(for='card-3')
               .card__content
-                .radio-button
+                .radio-button.radio-button--20
                   input.radio-button__control(type='radio' name="settings-cards" id="card-3" value="card-3")
                   .radio-button__checkmark
                 .card__content__card-icon.ic_card-mastercard
@@ -103,7 +103,31 @@ html(lang="uk")
                 .ic_delete
                 .text-12-16.color-orange.mt-8 Видалити
 
-          +divider('Інші способи оплати', 'divider--white mt-48 mb-40')
+          +divider('Інші способи оплати', 'divider--white opacity-50 mt-48 mb-40')
+
+          .settings__other-pay-methods
+            label.settings__other-pay-methods__item
+              .radio-button.radio-button--20
+                input.radio-button__control(type='radio' name="settings-cards" id="applepay" value="applepay")
+                .radio-button__checkmark
+              .settings__other-pay-methods__item__icon.ic_card-apple-pay
+              .settings__other-pay-methods__item__text Apple Pay
+            label.settings__other-pay-methods__item
+              .radio-button.radio-button--20
+                input.radio-button__control(type='radio' name="settings-cards" id="googlepay" value="googlepay")
+                .radio-button__checkmark
+              .settings__other-pay-methods__item__icon.ic_card-google-pay
+              .settings__other-pay-methods__item__text Google Pay
+
+          label.settings__set-default.mt-36.d-flex.align-items-center.w-100
+            .radio-button.radio-button--20
+              input.radio-button__control(type='checkbox' name="settings-set-default" id="settings-set-default")
+              .radio-button__checkmark
+            .ml-16.text-14-20.color-orange Назначити спосіб оплати за замовчуванням
+
+          button.btn.pl-24.pr-24.mt-48.mb-48.text-17-16 Зберегти налаштування
+
+
 
 
 

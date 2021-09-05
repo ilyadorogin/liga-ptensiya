@@ -198,6 +198,18 @@ input.apple-switch:checked:after {
   width: 24px;
   height: 24px;
 }
+.radio-button.radio-button--20 {
+  width: 20px;
+  height: 20px;
+}
+.radio-button.radio-button--20 .radio-button__checkmark {
+  width: 20px;
+  height: 20px;
+}
+.radio-button.radio-button--20 .radio-button__checkmark:after {
+  width: 10px;
+  height: 4px;
+}
 .radio-button__control {
   opacity: 0;
   cursor: pointer;
@@ -577,6 +589,11 @@ p, h1, h2, h3, h4 {
   line-height: 16px;
 }
 
+.text-17-16 {
+  font-size: 17px;
+  line-height: 16px;
+}
+
 .text-19-16 {
   font-size: 19px;
   line-height: 16px;
@@ -755,6 +772,28 @@ p, h1, h2, h3, h4 {
   font-size: 15px;
   line-height: 16px;
   color: #656565;
+}
+.settings__other-pay-methods {
+  width: 100%;
+}
+.settings__other-pay-methods__item {
+  display: flex;
+  align-items: center;
+  padding: 7px 7px 10px;
+  margin: 7px 0;
+  border-radius: 7px;
+}
+.settings__other-pay-methods__item.active {
+  border: 1px solid #F2A900;
+}
+.settings__other-pay-methods__item__icon {
+  margin-left: 24px;
+}
+.settings__other-pay-methods__item__text {
+  margin-left: 14px;
+}
+.settings__set-default {
+  padding: 0 7px;
 }
 
 .mt-62 {

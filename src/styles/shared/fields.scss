@@ -249,6 +249,21 @@ input.apple-switch {
   width: 24px;
   height: 24px;
 
+  &.radio-button--20 {
+    width: 20px;
+    height: 20px;
+
+    .radio-button__checkmark {
+      width: 20px;
+      height: 20px;
+
+      &:after {
+        width: 10px;
+        height: 4px;
+      }
+    }
+  }
+
   &__control {
     opacity: 0;
     cursor: pointer;

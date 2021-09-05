@@ -79,17 +79,17 @@
         </div>
       </div>
       <div class="d-none" id="settings-page__1">
-        <div class="settings d-flex flex-column align-items-center">
+        <form class="settings d-flex flex-column align-items-center" name="settings-cards">
           <h2 class="text-16-16 color-6B6B6B mt-62 mb-48">Налаштування cпособів оплати</h2>
           <div class="divider mb-34">
             <div class="divider__line"></div>
             <div class="divider__text">Збережені карти</div>
             <div class="divider__line"></div>
           </div>
-          <form class="card-list">
+          <div class="card-list">
             <label class="card" for="card-1">
               <div class="card__content">
-                <div class="radio-button">
+                <div class="radio-button radio-button--20">
                   <input class="radio-button__control" type="radio" name="settings-cards" id="card-1" value="card-1">
                   <div class="radio-button__checkmark"></div>
                 </div>
@@ -106,7 +106,7 @@
             </label>
             <label class="card" for="card-2">
               <div class="card__content">
-                <div class="radio-button">
+                <div class="radio-button radio-button--20">
                   <input class="radio-button__control" type="radio" name="settings-cards" id="card-2" value="card-2">
                   <div class="radio-button__checkmark"></div>
                 </div>
@@ -123,7 +123,7 @@
             </label>
             <label class="card" for="card-3">
               <div class="card__content">
-                <div class="radio-button">
+                <div class="radio-button radio-button--20">
                   <input class="radio-button__control" type="radio" name="settings-cards" id="card-3" value="card-3">
                   <div class="radio-button__checkmark"></div>
                 </div>
@@ -138,13 +138,39 @@
                 <div class="text-12-16 color-orange mt-8">Видалити</div>
               </button>
             </label>
-          </form>
-          <div class="divider divider--white mt-48 mb-40">
+          </div>
+          <div class="divider divider--white opacity-50 mt-48 mb-40">
             <div class="divider__line"></div>
             <div class="divider__text">Інші способи оплати</div>
             <div class="divider__line"></div>
           </div>
-        </div>
+          <div class="settings__other-pay-methods">
+            <label class="settings__other-pay-methods__item">
+              <div class="radio-button radio-button--20">
+                <input class="radio-button__control" type="radio" name="settings-cards" id="applepay" value="applepay">
+                <div class="radio-button__checkmark"></div>
+              </div>
+              <div class="settings__other-pay-methods__item__icon ic_card-apple-pay"></div>
+              <div class="settings__other-pay-methods__item__text">Apple Pay</div>
+            </label>
+            <label class="settings__other-pay-methods__item">
+              <div class="radio-button radio-button--20">
+                <input class="radio-button__control" type="radio" name="settings-cards" id="googlepay" value="googlepay">
+                <div class="radio-button__checkmark"></div>
+              </div>
+              <div class="settings__other-pay-methods__item__icon ic_card-google-pay"></div>
+              <div class="settings__other-pay-methods__item__text">Google Pay</div>
+            </label>
+          </div>
+          <label class="settings__set-default mt-36 d-flex align-items-center w-100">
+            <div class="radio-button radio-button--20">
+              <input class="radio-button__control" type="checkbox" name="settings-set-default" id="settings-set-default">
+              <div class="radio-button__checkmark"></div>
+            </div>
+            <div class="ml-16 text-14-20 color-orange">Назначити спосіб оплати за замовчуванням</div>
+          </label>
+          <button class="btn pl-24 pr-24 mt-48 mb-48 text-17-16">Зберегти налаштування</button>
+        </form>
       </div>
     </main>
     <footer class="footer">

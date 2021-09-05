@@ -11,6 +11,34 @@
       color: #656565;
     }
   }
+
+  &__other-pay-methods {
+    width: 100%;
+
+    &__item {
+      display: flex;
+      align-items: center;
+      padding: 7px 7px 10px;
+      margin: 7px 0;
+      border-radius: 7px;
+
+      &.active {
+        border: 1px solid $color-orange;
+      }
+
+      &__icon {
+        margin-left: 24px;
+      }
+
+      &__text {
+        margin-left: 14px;
+      }
+    }
+  }
+
+  &__set-default {
+    padding: 0 7px;
+  }
 }
 
 
