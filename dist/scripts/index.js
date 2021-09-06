@@ -34,7 +34,7 @@ $(function () {
     })
   });
 
-  let passwordField = (inputGroupSelector) => {
+  function passwordField(inputGroupSelector) {
     const suffix = $(`${inputGroupSelector} .suffix`);
     const input = $(inputGroupSelector).find('input');
 
@@ -94,11 +94,70 @@ $(function () {
     }
   }
 
+  function listDefault(mainPageId, listItemClass, pagesIdPrefix, backBtnId, [mainCallback, ...pagesCallbacks]) {
+    const listPage = $(`#${mainPageId}`);
+    if (listPage.length) {
+      const items = $(`#${mainPageId} .${listItemClass}`);
+      let openedIndex = undefined;
+
+      items.each(function (i) {
+        const itemPage = $(`#${pagesIdPrefix}${i}`);
+        $(this).on('click', function () {
+          listPage.addClass('d-none');
+          itemPage.removeClass('d-none');
+
+          if (typeof mainCallback?.close === 'function') mainCallback.close();
+          if (typeof pagesCallbacks[i]?.open === 'function') mainCallback.open();
+
+          openedIndex = i;
+        });
+      })
+
+      $(`#${backBtnId}`).on('click', function () {
+        if (listPage.hasClass('d-none')) {
+          listPage.removeClass('d-none');
+          $(`[id^=${pagesIdPrefix}]`).addClass('d-none');
+
+          // open/close callback
+          if (typeof pagesCallbacks[openedIndex]?.close === 'function') mainCallback.close();
+          if (typeof mainCallback?.open === 'function') mainCallback.open();
+
+          openedIndex = undefined;
+        } else {
+          window.history.back();
+        }
+      })
+    }
+  }
+
   // profile
+  if ($('#profile').length) {
+    listDefault(
+      'profile-main',
+      'profile__page-btn',
+      'profile-page__',
+      'profile-back-btn',
+      [{
+        open: () => {
+          $('.bottom-swipe-menu').show();
+        },
+        close: () => {
+          $('.bottom-swipe-menu').hide();
+        }
+      }]
+    );
+
+    $('.slick-slider').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+    });
 
 
-  const profileTabsContainer = $('#profile-tabs');
-  if (profileTabsContainer.length) {
+    // top up
+    const profileTabsContainer = $('#profile-tabs');
     const nextBtn = $('#profile-tabs-next-btn');
     const finishBtn = $('#profile-tabs-finish-btn');
     const tabLinks = $('.profile__tabs .profile__tabs__link');
@@ -119,35 +178,77 @@ $(function () {
         nextBtn.addClass('d-none');
         finishBtn.removeClass('d-none');
       }
-    })
-  }
+    });
 
-  function listDefault(containerId, listItemClass, pagesIdPrefix, backBtnId) {
-    const listPage = $(`#${containerId}`);
-    if (listPage.length) {
-      const items = $(`#${containerId} .${listItemClass}`);
+    // bottom menu
+    bottomSwipeMenu();
 
-      items.each(function (i) {
-        const itemPage = $(`#${pagesIdPrefix}${i}`);
-        $(this).on('click', function () {
-          listPage.addClass('d-none');
-          itemPage.removeClass('d-none');
+    function bottomSwipeMenu() {
+      const bottomSwipeMenuEl = $('.bottom-swipe-menu');
+      const overlay = $('.bottom-swipe-menu .bottom-swipe-menu__overlay');
+      const mainBottomPos = $('#profile-main').height();
+      const menuHeight = 440;
+
+      let opened = false;
+
+      bottomSwipeMenuEl.css('top', mainBottomPos);
+
+      const shouldOpen = $('#profile').height() - menuHeight <= mainBottomPos;
+      console.log($('#profile').height());
+      console.log(menuHeight);
+      console.log(mainBottomPos);
+      console.log(shouldOpen);
+
+      if (shouldOpen) {
+        _overlayShow();
+
+        overlay.on('click',function (e) {
+          let openedMenuTopPos = $('#profile').height() - menuHeight;
+
+          if (!opened) {
+            opened = true;
+            bottomSwipeMenuEl.css('top', openedMenuTopPos);
+            _overlayHide();
+          }
+        });
+
+        bottomSwipeMenuEl.on('click', function (e) {
+          e.stopPropagation();
         })
-      })
 
-      $(`#${backBtnId}`).on('click', function () {
-        if (listPage.hasClass('d-none')) {
-          listPage.removeClass('d-none');
-          $(`[id^=${pagesIdPrefix}]`).addClass('d-none');
-        } else {
-          window.history.back();
-        }
-      })
+        $(document).click(function() {
+          opened = false;
+          bottomSwipeMenuEl.css('top', mainBottomPos);
+          _overlayShow();
+        });
+      }
+
+
+      function _overlayShow() {
+        overlay.css('top', 0);
+        overlay.css('bottom', 0);
+        overlay.css('left', 0);
+        overlay.css('right', 0);
+      }
+      function _overlayHide() {
+        overlay.css('top', 'unset');
+        overlay.css('bottom', 'unset');
+        overlay.css('left', 'unset');
+        overlay.css('right', 'unset');
+      }
+
     }
+
   }
 
   // docs
-  listDefault('docs-list-page', 'list__item', 'doc-page__', 'documents-back-btn');
+  listDefault(
+    'docs-list-page',
+    'list__item',
+    'doc-page__',
+    'documents-back-btn',
+    []
+  );
 
   // faq
   const faqsListPage = $('#faq-list-page');
@@ -176,16 +277,14 @@ $(function () {
     })
   }
 
-  // settings
-  if ($('#settings').length) {
-    listDefault('settings-main', 'list__item', 'settings-page__', 'settings-back-btn');
-
-    const cardList = $('.card-list');
+  function cardList(listSelector, itemSelector) {
+    const cardList = $(listSelector);
+    console.log(cardList);
     cardList.listSwipe({
       leftAction: false,
     });
 
-    const cards = $('#settings .card-list .card, #settings .settings__other-pay-methods .settings__other-pay-methods__item');
+    const cards = $(itemSelector);
     cards.each(function () {
       const card = $(this);
       const cardInput = $(this).find('input');
@@ -193,10 +292,34 @@ $(function () {
       cardInput.change(function () {
         cards.removeClass('active');
         card.addClass('active');
-        // console.log($(this).closest('.card'));
-
       })
     })
+  }
+
+  // settings
+  if ($('#settings').length) {
+    listDefault(
+      'settings-main',
+      'list__item',
+      'settings-page__',
+      'settings-back-btn',
+      []
+    );
+
+    cardList('.card-list', '#settings .card-list .card, #settings .settings__other-pay-methods .settings__other-pay-methods__item');
+  }
+
+  // regular payment
+  if ($('#regular-payment').length) {
+    listDefault(
+      'regular-payment',
+      'regular-payment-page-link',
+      'regular-payment__',
+      'regular-payment-back-btn',
+      []
+    );
+
+    cardList('.card-list', '.card-list .card');
   }
 
 

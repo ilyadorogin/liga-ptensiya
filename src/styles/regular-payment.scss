@@ -1,0 +1,81 @@
+@import "shared/shared";
+
+.regular-payment {
+
+  &__border-orange {
+    border: 1px solid $color-orange;
+    border-radius: 7px;
+  }
+
+  &__card-list {
+    .card {
+      position: relative;
+      height: auto;
+
+
+      .radio-button {
+        position: absolute;
+        top: 4px;
+        right: 6px;
+
+        &__checkmark {
+          border: none;
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    padding: 3px 16px 1px 24px;
+
+    &__icon {
+      width: 19px;
+      height: 22px;
+      background-image: url('../assets/images/icons/ic_regular-payment.svg');
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+      
+      &__info {
+        display: flex;
+        align-items: center;
+
+        &__label {
+          font-size: 12px;
+          line-height: 16px;
+          color: $color-858585;
+        }
+        &__number {
+          margin-left: 16px;
+          font-size: 13px;
+          line-height: 20px;
+          color: $color-green;
+        }
+      }
+
+      &__name {
+        margin-top: 7px;
+        font-size: 14px;
+        line-height: 16px;
+        color: #656565;
+      }
+
+      &__more {
+        margin-top: 13px;
+        font-size: 12px;
+        line-height: 18px;
+        color: $color-orange;
+      }
+    }
+
+  }
+}
+
+.h-61 {
+  height: 61px;
+}
+

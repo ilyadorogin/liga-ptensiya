@@ -3,6 +3,8 @@
 @import "fields";
 @import "icons";
 @import "cards";
+@import "slick";
+//@import "slick-theme";
 
 @import "header";
 @import "footer";
@@ -17,6 +19,7 @@ body {
   font-family: 'SFProText-Regular', sans-serif;
   color: #646466;
   height: 100vh;
+  background-color: #fff;
 }
 
 main {
@@ -319,4 +322,24 @@ p, h1, h2, h3, h4 {
   }
 }
 
+//
 
+.container-shadow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px -4px 12px rgba(161, 161, 161, 0.32);
+  border-radius: 16px 16px 0 0;
+  margin-top: 24px;
+  padding-top: 50px;
+
+  &__icon {
+    position: absolute;
+    top: -24px;
+    left: calc(50% - 24px);
+    width: 48px;
+    height: 48px;
+  }
+}
