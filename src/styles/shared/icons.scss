@@ -108,4 +108,28 @@
     //background-image: url('../assets/images/icons/ic_card-mastercard.svg');
     background-image: url('../assets/images/icons/ic_card-mastercard.png');
   }
+
+  &_bank-alfa {
+    width: 17px;
+    height: 18px;
+    background-image: url('../assets/images/icons/banks/ic_alfa.svg');
+  }
+
+  &_card-big-settings {
+    width: 20px;
+    height: 27px;
+    background-image: url('../assets/images/icons/ic_card-big-settings.svg');
+  }
+
+  &_pay-system-visa {
+    width: 39px;
+    height: 13px;
+    background-image: url('../assets/images/icons/ic_pay-system-visa.svg');
+  }
+
+  &_add-new-card {
+    width: 50px;
+    height: 50px;
+    background-image: url('../assets/images/icons/ic_add-new-card.svg');
+  }
 }

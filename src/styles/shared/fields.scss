@@ -264,6 +264,12 @@ input.apple-switch {
     }
   }
 
+  &.radio-button--no-border {
+    .radio-button__checkmark {
+      border: none;
+    }
+  }
+
   &__control {
     opacity: 0;
     cursor: pointer;

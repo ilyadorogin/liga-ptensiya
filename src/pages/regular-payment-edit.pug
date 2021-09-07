@@ -1,0 +1,91 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title regular-payment
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+    link(rel="stylesheet" type="text/css" href="../styles/regular-payment.css")
+
+  body
+
+    +header()
+
+
+
+    main#regular-payment-edit.with-footer.regular-payment
+      .d-flex.flex-column.align-items-center
+        .profile__logo.mb-32
+          +logo(122)
+        .container-shadow
+          .container-shadow__icon
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M40.3725 27.5725C40.3803 27.3948 40.3334 27.2191 40.2381 27.0689C40.1429 26.9187 40.004 26.8013 39.84 26.7325L38.58 26.3575C38.5125 26.1775 38.445 25.9975 38.3625 25.825L38.9475 24.745C39.0354 24.5796 39.0675 24.3902 39.0391 24.2051C39.0107 24.02 38.9234 23.849 38.79 23.7175L37.725 22.66C37.5926 22.5278 37.4212 22.4419 37.2361 22.4149C37.051 22.3878 36.8622 22.4212 36.6975 22.51L35.61 23.08C35.4244 22.99 35.2341 22.9099 35.04 22.84L34.68 21.655C34.6199 21.4832 34.507 21.3348 34.3575 21.2311C34.208 21.1274 34.0295 21.0736 33.8475 21.0775H32.3475C32.1612 21.0773 31.9797 21.137 31.8299 21.2477C31.68 21.3584 31.5696 21.5143 31.515 21.6925L31.1625 22.8475C30.9659 22.9171 30.7731 22.9972 30.585 23.0875L29.52 22.5175C29.3562 22.4305 29.1689 22.3981 28.9854 22.4251C28.8019 22.4521 28.6319 22.537 28.5 22.6675L27.4125 23.7175C27.2775 23.8495 27.1891 24.0219 27.1607 24.2086C27.1323 24.3953 27.1654 24.5862 27.255 24.7525L27.81 25.75C27.7229 25.9308 27.6453 26.116 27.5775 26.305L26.3925 26.6575C26.2124 26.7097 26.0541 26.8192 25.9418 26.9694C25.8294 27.1196 25.7691 27.3024 25.77 27.49V28.99C25.7708 29.1763 25.8318 29.3573 25.944 29.506C26.0562 29.6547 26.2136 29.7631 26.3925 29.815L27.585 30.1675C27.6531 30.3514 27.7307 30.5316 27.8175 30.7075L27.2325 31.8025C27.1447 31.9679 27.1126 32.1572 27.141 32.3423C27.1693 32.5274 27.2567 32.6985 27.39 32.83L28.455 33.88C28.5865 34.0133 28.7576 34.1007 28.9427 34.129C29.1278 34.1574 29.3171 34.1253 29.4825 34.0375L30.5925 33.4525C30.765 33.535 30.945 33.6025 31.1325 33.67L31.5 34.885C31.556 35.0617 31.6669 35.216 31.8166 35.3253C31.9664 35.4345 32.1471 35.4931 32.3325 35.4925H33.8325C34.0189 35.4926 34.2003 35.4329 34.3502 35.3222C34.5001 35.2115 34.6104 35.0556 34.665 34.8775L35.0175 33.6925C35.1975 33.6325 35.37 33.5575 35.5425 33.475L36.6675 34.0675C36.8313 34.1545 37.0186 34.1868 37.2021 34.1598C37.3856 34.1328 37.5557 34.0479 37.6875 33.9175L38.7525 32.8675C38.8876 32.7354 38.976 32.563 39.0044 32.3763C39.0328 32.1896 38.9997 31.9987 38.91 31.8325L38.3175 30.745C38.3975 30.575 38.47 30.4025 38.535 30.2275L39.75 29.875C39.9302 29.8228 40.0885 29.7133 40.2008 29.563C40.3131 29.4128 40.3734 29.23 40.3725 29.0425V27.5725ZM39.1725 28.795L37.59 29.26L37.5 29.575C37.4075 29.8851 37.2818 30.1843 37.125 30.4675L36.9675 30.7525L37.7175 32.185L36.9675 32.935L35.4675 32.185L35.19 32.335C34.9037 32.4885 34.602 32.6117 34.29 32.7025L33.975 32.7925L33.5025 34.36H32.565L32.0925 32.8L31.7775 32.71C31.463 32.6196 31.1588 32.4964 30.87 32.3425L30.5925 32.1925L29.1375 32.9425L28.3875 32.1925L29.1375 30.7375L28.9725 30.4525C28.822 30.149 28.7063 29.8294 28.6275 29.5L28.5 29.2225L27 28.75V27.7675L28.5 27.31L28.5975 27.0025C28.6948 26.681 28.8282 26.3715 28.995 26.08L29.175 25.75L28.425 24.3625L29.175 23.6575L30.5925 24.4075L30.8775 24.25C31.1773 24.0858 31.4942 23.955 31.8225 23.86L32.13 23.77L32.6025 22.27H33.6375L34.1025 23.77L34.41 23.86C34.7281 23.9569 35.0348 24.0877 35.325 24.25L35.61 24.4075L37.05 23.6575L37.8 24.4075L37.05 25.825L37.2075 26.11C37.3648 26.3981 37.4906 26.7024 37.5825 27.0175L37.6725 27.3325L39.2175 27.79L39.1725 28.795Z" fill="#F2A900"/><path d="M33.0899 25.2625C32.4993 25.2743 31.9252 25.4602 31.4399 25.797C30.9545 26.1337 30.5793 26.6063 30.3614 27.1554C30.1435 27.7045 30.0926 28.3057 30.215 28.8837C30.3375 29.4616 30.6278 29.9905 31.0497 30.4041C31.4715 30.8177 32.0061 31.0975 32.5863 31.2085C33.1666 31.3195 33.7667 31.2566 34.3114 31.0279C34.8561 30.7992 35.3211 30.4148 35.6482 29.9228C35.9752 29.4308 36.1498 28.8533 36.1499 28.2625C36.1381 27.4601 35.81 26.6949 35.237 26.1331C34.6639 25.5713 33.8923 25.2584 33.0899 25.2625ZM33.0899 30.1075C32.7311 30.1001 32.3825 29.987 32.0878 29.7823C31.7931 29.5776 31.5653 29.2904 31.4331 28.9568C31.3009 28.6232 31.2701 28.258 31.3446 27.907C31.4191 27.556 31.5956 27.2348 31.8519 26.9836C32.1082 26.7325 32.4329 26.5626 32.7854 26.4952C33.1379 26.4279 33.5024 26.4661 33.8332 26.6051C34.1641 26.7441 34.4465 26.9776 34.6452 27.2765C34.8438 27.5753 34.9498 27.9261 34.9499 28.285C34.9479 28.5273 34.8983 28.7668 34.8037 28.9899C34.7092 29.213 34.5716 29.4153 34.3989 29.5852C34.2262 29.7552 34.0217 29.8894 33.7971 29.9803C33.5725 30.0712 33.3322 30.117 33.0899 30.115V30.1075Z" fill="#F2A900"/><path d="M25.8675 33.25H19.5V13.75H34.5V19.6675C34.8273 19.7636 35.1305 19.9283 35.3891 20.1507C35.6478 20.3732 35.856 20.6482 36 20.9575V13.75C36 13.3522 35.842 12.9706 35.5607 12.6893C35.2794 12.408 34.8978 12.25 34.5 12.25H19.5C19.1022 12.25 18.7206 12.408 18.4393 12.6893C18.158 12.9706 18 13.3522 18 13.75V33.25C18 33.6478 18.158 34.0294 18.4393 34.3107C18.7206 34.592 19.1022 34.75 19.5 34.75H27.1725L26.3475 33.94C26.147 33.741 25.9844 33.5072 25.8675 33.25Z" fill="#F2A900"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+          .d-flex.flex-column.align-items-center.w-100
+            .text-16-16.color-orange Налаштування платежу
+            +divider('Оберіть фонд', 'mt-44 mb-24')
+            form.regular-payment__edit-list(name="regular-payment-fund")
+              label.regular-payment__edit-list__item(for="fund-1")
+                span ВНФП Взаємодопомога
+                .radio-button.radio-button--no-border
+                  input.radio-button__control(type='radio' name="regular-payment-fund" id="fund-1" value="fund-1")
+                  .radio-button__checkmark
+              label.regular-payment__edit-list__item(for="fund-2")
+                span ВНФП Взаємодопомога
+                .radio-button.radio-button--no-border
+                  input.radio-button__control(type='radio' name="regular-payment-fund" id="fund-2" value="fund-2")
+                  .radio-button__checkmark
+            +divider('Обрати карту', 'divider--white opacity-50 mb-24', 'margin-top:60px;')
+            .slick-slider
+              div
+                .slick-card-container
+                  .card-big.bg-card-1
+                    .card-big__bank
+                      .ic_bank-alfa
+                    .card-big__settings
+                      .ic_card-big-settings
+                    .card-big__pay-system
+                      .ic_pay-system-visa
+                    .card-big__content
+                      .card-big__content__name Visa Platinum
+                      .card-big__content__mask ****3456
+                      .card-big__content__type credit
+              div
+                .slick-card-container
+                  .card-big.bg-card-2
+                    .card-big__bank
+                      .ic_bank-alfa
+                    .card-big__settings
+                      .ic_card-big-settings
+                    .card-big__pay-system
+                      .ic_pay-system-visa
+                    .card-big__content
+                      .card-big__content__name Visa Platinum
+                      .card-big__content__mask ****3456
+                      .card-big__content__type credit
+              div
+                .slick-card-container
+                  .card-big
+                    .card-big__settings
+                      .ic_card-big-settings
+                    .card-big__add-new-card
+                      .ic_add-new-card
+                      .card-big__add-new-card__text Додати нову карту вручну
+            +divider('Обрати карту', 'divider--white opacity-50 mt-36 mb-24')
+
+
+
+
+    +footer()
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/slick.min.js")
+
+  script(src="../scripts/index.js")
+

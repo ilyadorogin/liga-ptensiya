@@ -311,15 +311,47 @@ $(function () {
 
   // regular payment
   if ($('#regular-payment').length) {
-    listDefault(
-      'regular-payment',
-      'regular-payment-page-link',
-      'regular-payment__',
-      'regular-payment-back-btn',
-      []
-    );
-
     cardList('.card-list', '.card-list .card');
+
+    $('.slick-slider').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+    });
+  }
+
+  if ($('#regular-payment-edit').length) {
+    // $('.regular-payment__edit-list').each(function () {
+    //   $(this).change()
+    //
+    //   // const input = $(this).find('input');
+    //   // const inputStartValue = input.is(':checked');
+    //   //
+    //   // if (inputStartValue) {
+    //   //   $(this).addClass('active');
+    //   // }
+    //   //
+    //   // input.change(e => {
+    //   //   console.log(input.val());
+    //   //   console.log(input.is(':checked'));
+    //   //   const val = input.is(':checked');
+    //   //   if (val) {
+    //   //     $(this).addClass('active');
+    //   //   } else {
+    //   //     $(this).removeClass('active');
+    //   //   }
+    //   // })
+    // });
+
+    $('.slick-slider').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+    });
   }
 
 
