@@ -1,9 +1,13 @@
-mixin input(id, label, type, iconName)
-  .input-group.w-100(id=id + '_inputGroup')
+mixin input(id, label, type, icon)
+  div(id=id + '_inputGroup' class='input-group w-100 ' + (type === 'date' ? 'datepicker' : ''))
     label(for=id).input-group__label= label
     .has-float-label
-      input.input-group__control(name=id, id=id, type=type)
-    div(class='suffix ic_' + (iconName ? iconName : 'none'))
+      input.input-group__control(name=id, id=id, type=(!type || type === 'date' ? 'text' : type))
+    if icon && icon.focus
+      div(class='suffix suffix-default ic_' + (icon.default ? icon.default : 'none'))
+      div(class='suffix suffix-focus ic_' + (icon.focus ? icon.focus : 'none'))
+    else if icon
+      div(class='suffix ic_' + (icon ? icon : 'none'))
 
 mixin checkbox(id, label)
   .checkbox-group
@@ -11,7 +15,6 @@ mixin checkbox(id, label)
       span Даю згоду на обробку особистих даних
       input.checkbox-group__control(type='checkbox')
       span.checkbox-group__checkmark
-
 
 
 

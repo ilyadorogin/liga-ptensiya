@@ -1,0 +1,68 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title requisites
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+    link(rel="stylesheet" type="text/css" href="../styles/regular-payment.css")
+
+  body
+
+    +header()
+
+
+
+    main#requisites.with-footer.requisites
+      .d-flex.flex-column.align-items-center.pb-20
+        .profile__logo.mb-32
+          +logo(122)
+        .container-shadow
+          .container-shadow__icon
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M23.6538 23.192H22.8462V24.792H23.6538V23.192ZM33.3462 24.792H34.1538V23.192H33.3462V24.792ZM23.6538 27.2H22.8462V28H23.6538V27.2ZM33.3462 27.2V28H34.1538V27.2H33.3462ZM23.6538 20.8V20H22.8462V20.8H23.6538ZM33.3462 20.8H34.1538V20H33.3462V20.8ZM38.1923 17.6H39V17.2688L38.7642 17.0336L38.1923 17.6ZM33.3462 12.8L33.918 12.2336L33.6805 12H33.3462V12.8ZM23.6538 24.792H33.3462V23.192H23.6538V24.792ZM23.6538 28H33.3462V26.4H23.6538V28ZM23.6538 21.6H33.3462V20H23.6538V21.6ZM36.5769 34.4H20.4231V36H36.5769V34.4ZM19.6154 33.6V14.4H18V33.6H19.6154ZM37.3846 17.6V33.6H39V17.6H37.3846ZM20.4231 13.6H33.3462V12H20.4231V13.6ZM32.7743 13.3664L37.6205 18.1664L38.7642 17.0336L33.918 12.2336L32.7743 13.3664ZM20.4231 34.4C20.2089 34.4 20.0034 34.3157 19.852 34.1657C19.7005 34.0157 19.6154 33.8122 19.6154 33.6H18C18 34.2365 18.2553 34.847 18.7097 35.2971C19.1641 35.7471 19.7804 36 20.4231 36V34.4ZM36.5769 36C37.2196 36 37.8359 35.7471 38.2903 35.2971C38.7447 34.847 39 34.2365 39 33.6H37.3846C37.3846 33.8122 37.2995 34.0157 37.148 34.1657C36.9966 34.3157 36.7911 34.4 36.5769 34.4V36ZM19.6154 14.4C19.6154 14.1878 19.7005 13.9843 19.852 13.8343C20.0034 13.6843 20.2089 13.6 20.4231 13.6V12C19.7804 12 19.1641 12.2529 18.7097 12.7029C18.2553 13.153 18 13.7635 18 14.4H19.6154ZM22.8462 20.8V27.2H24.4615V20.8H22.8462ZM27.6923 20.8V27.2H29.3077V20.8H27.6923ZM32.5385 20.8V27.2H34.1538V20.8H32.5385ZM22.8462 18.4H27.6923V16.8H22.8462V18.4ZM29.3077 31.2H34.1538V29.6H29.3077V31.2Z" fill="#F2A900"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+          .d-flex.flex-column.align-items-center.w-100
+            .text-16-16.color-orange.mb-32 Реквізити рахунку
+
+            .text-12-16.color-81765E80 Платник П.І.Б.:
+            .text-16-16.color-656565.mt-16 Коваленко Сергій Миколайович
+
+            .text-12-16.color-81765E80.mt-32 Індентифікаційний номер ДРФО:
+            .text-16-16.color-656565.mt-16 1001223243245325
+
+            .text-12-16.color-81765E80.mt-32 Отримувач:
+            .text-16-16.color-656565.mt-16 ВНФП “Взаємодопомога”
+
+            .text-12-16.color-81765E80.mt-32 Код ЄДРПОУ:
+            .text-16-16.color-656565.mt-16 33146316
+
+            .text-12-16.color-81765E80.mt-32 Банк отримувача:
+            .text-16-16.color-656565.mt-16 АТ “УКРСИББАНК”
+
+            .text-12-16.color-81765E80.mt-32 Код банку:
+            .text-16-16.color-656565.mt-16 351005
+
+            .text-12-16.color-81765E80.mt-32 Номер рахунку:
+            .text-16-16.color-656565.mt-16 UA213510050000026503642265088
+
+            .text-12-16.color-81765E80.mt-32 Сума внеску, грн.:
+            .text-16-16.color-656565.mt-16 1000
+
+            .text-12-16.color-81765E80.mt-32 Сума внеску, грн.:
+            .text-16-16.color-656565.mt-16 Пенсійні внески на ІПР № 2334567890,
+            .text-16-16.color-656565.mt-8 за ПК 34354647585858
+            .text-16-16.color-656565.mt-8 від 20.12.2021 р.
+
+
+
+    +footer()
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+
+  script(src="../scripts/index.js")
+

@@ -18,7 +18,7 @@ $(function () {
       $(this).addClass('active');
     }
 
-    input.on('input', e => {
+    input.on('change input', e => {
       const val = input.val();
       if (val) {
         $(this).addClass('active');
@@ -170,7 +170,7 @@ $(function () {
 
         activeTab++;
         tabLinks[activeTab].classList.add('active');
-        profileTabsContainer.tabs({ active: activeTab/*`#profile-tab-${activeTab+1}`*/ });
+        profileTabsContainer.tabs({active: activeTab/*`#profile-tab-${activeTab+1}`*/});
       }
       if (activeTab === 2) {
         tabLinks[activeTab].classList.add('completed');
@@ -197,7 +197,7 @@ $(function () {
       if (shouldOpen) {
         _overlayShow();
 
-        overlay.on('click',function (e) {
+        overlay.on('click', function (e) {
           let openedMenuTopPos = $('#profile').height() - menuHeight;
 
           if (!opened) {
@@ -211,7 +211,7 @@ $(function () {
           e.stopPropagation();
         })
 
-        $(document).click(function() {
+        $(document).click(function () {
           opened = false;
           bottomSwipeMenuEl.css('top', mainBottomPos);
           _overlayShow();
@@ -225,6 +225,7 @@ $(function () {
         overlay.css('left', 0);
         overlay.css('right', 0);
       }
+
       function _overlayHide() {
         overlay.css('top', 'unset');
         overlay.css('bottom', 'unset');
@@ -259,7 +260,7 @@ $(function () {
         faqPage.removeClass('d-none');
       });
 
-      accordion.accordion({ active: false, collapsible: true, });
+      accordion.accordion({active: false, collapsible: true,});
     });
 
     $('#faq-back-btn').on('click', function () {
@@ -319,33 +320,13 @@ $(function () {
   if ($('#regular-payment-edit').length) {
     $('.regular-payment__edit-list').each(function () {
       $(this).change(function (e) {
-        const form = $(this);
         const items = $(this).find('.regular-payment__edit-list__item');
         const input = $(e.target);
-        const value = input.val();
-        console.log(value);
+        // const value = input.val();
 
         items.removeClass('active');
         input.closest('.regular-payment__edit-list__item').addClass('active');
-      })
-
-      // const input = $(this).find('input');
-      // const inputStartValue = input.is(':checked');
-      //
-      // if (inputStartValue) {
-      //   $(this).addClass('active');
-      // }
-      //
-      // input.change(e => {
-      //   console.log(input.val());
-      //   console.log(input.is(':checked'));
-      //   const val = input.is(':checked');
-      //   if (val) {
-      //     $(this).addClass('active');
-      //   } else {
-      //     $(this).removeClass('active');
-      //   }
-      // })
+      });
     });
 
     $('.slick-slider').slick({
@@ -357,6 +338,39 @@ $(function () {
     });
   }
 
+  // datepicker
+  $('.datepicker input').datepicker();
+
+  // account statement
+  if ($('#account-statement').length) {
+    const dateFormat = "mm/dd/yy"
+
+    const from = $("#account-statement #startDate").datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3
+    }).on("change", function () {
+      to.datepicker("option", "minDate", getDate(this));
+    });
+
+    const to = $("#account-statement #endDate").datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3
+    }).on("change", function () {
+      from.datepicker("option", "maxDate", getDate(this));
+    });
+
+    function getDate(element) {
+      let date;
+      try {
+        date = $.datepicker.parseDate(dateFormat, element.value);
+      } catch (error) {
+        date = null;
+      }
+      return date;
+    }
+  }
 
 
 })

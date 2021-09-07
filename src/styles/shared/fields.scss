@@ -13,7 +13,7 @@
   border-radius: 7px;
   border-left-width: 6px;
 
-  margin-top: 40px;
+  margin-top: 30px;
 
   &__label {
     pointer-events: none;
@@ -59,15 +59,24 @@
     }
   }
 
-  //&:focus {
-  //  .input-group__label {
-  //    top: -10px;
-  //    left: 7px;
-  //
-  //    font-size: 13px;
-  //    line-height: 16px;
-  //  }
-  //}
+  .suffix {
+    margin-right: 14px;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    //width: 24px;
+    //height: 24px;
+
+    .ic_none {
+      margin: 0;
+      width: 0;
+      height: 0;
+    }
+
+    &-focus {
+      display: none;
+    }
+  }
 
   &.active {
     .input-group__label {
@@ -78,6 +87,34 @@
       line-height: 16px;
     }
   }
+
+  &.focus {
+    border-color: $color-orange;
+
+    .input-group__label {
+      color: $color-orange;
+    }
+
+    .suffix {
+      &-default {
+        display: none;
+      }
+      &-focus {
+        display: block;
+      }
+    }
+  }
+
+  //&.focus, &.active {
+  //  .suffix {
+  //    &-default {
+  //      display: none;
+  //    }
+  //    &-active {
+  //      display: block;
+  //    }
+  //  }
+  //}
 
   &.error {
     .input-group__control {
@@ -92,21 +129,6 @@
   &__error {
     margin-top: 10px;
     display: block;
-  }
-
-  .suffix {
-    margin-right: 14px;
-    cursor: pointer;
-    background-size: contain;
-    background-repeat: no-repeat;
-    //width: 24px;
-    //height: 24px;
-
-    .ic_none {
-      margin: 0;
-      width: 0;
-      height: 0;
-    }
   }
 }
 
@@ -320,10 +342,20 @@ input.apple-switch {
   }
 }
 
+// datepicker
+.ui-datepicker {
+  &-header {
+    height: 44px;
+  }
+
+  &-calendar {
+
+  }
+}
+
 
 
 // float label
-
 @mixin float-label {
   label, > span {
     position: absolute;
