@@ -79,7 +79,6 @@ $(function () {
       const paste = e.clipboardData.getData('text');
       // loop over each input, and populate with the index of that string
       inputs.forEach((input, i) => {
-        console.log(input);
         input.value = paste[i] || '';
       });
     }
@@ -194,10 +193,6 @@ $(function () {
       bottomSwipeMenuEl.css('top', mainBottomPos);
 
       const shouldOpen = $('#profile').height() - menuHeight <= mainBottomPos;
-      console.log($('#profile').height());
-      console.log(menuHeight);
-      console.log(mainBottomPos);
-      console.log(shouldOpen);
 
       if (shouldOpen) {
         _overlayShow();
@@ -279,7 +274,6 @@ $(function () {
 
   function cardList(listSelector, itemSelector) {
     const cardList = $(listSelector);
-    console.log(cardList);
     cardList.listSwipe({
       leftAction: false,
     });
@@ -323,27 +317,36 @@ $(function () {
   }
 
   if ($('#regular-payment-edit').length) {
-    // $('.regular-payment__edit-list').each(function () {
-    //   $(this).change()
-    //
-    //   // const input = $(this).find('input');
-    //   // const inputStartValue = input.is(':checked');
-    //   //
-    //   // if (inputStartValue) {
-    //   //   $(this).addClass('active');
-    //   // }
-    //   //
-    //   // input.change(e => {
-    //   //   console.log(input.val());
-    //   //   console.log(input.is(':checked'));
-    //   //   const val = input.is(':checked');
-    //   //   if (val) {
-    //   //     $(this).addClass('active');
-    //   //   } else {
-    //   //     $(this).removeClass('active');
-    //   //   }
-    //   // })
-    // });
+    $('.regular-payment__edit-list').each(function () {
+      $(this).change(function (e) {
+        const form = $(this);
+        const items = $(this).find('.regular-payment__edit-list__item');
+        const input = $(e.target);
+        const value = input.val();
+        console.log(value);
+
+        items.removeClass('active');
+        input.closest('.regular-payment__edit-list__item').addClass('active');
+      })
+
+      // const input = $(this).find('input');
+      // const inputStartValue = input.is(':checked');
+      //
+      // if (inputStartValue) {
+      //   $(this).addClass('active');
+      // }
+      //
+      // input.change(e => {
+      //   console.log(input.val());
+      //   console.log(input.is(':checked'));
+      //   const val = input.is(':checked');
+      //   if (val) {
+      //     $(this).addClass('active');
+      //   } else {
+      //     $(this).removeClass('active');
+      //   }
+      // })
+    });
 
     $('.slick-slider').slick({
       arrows: false,
