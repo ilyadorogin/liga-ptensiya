@@ -264,6 +264,77 @@ input.apple-switch:checked:after {
   transform: rotate(315deg);
 }
 
+.ui-datepicker {
+  padding: 16px 10px 22px;
+  background-color: #fff;
+  box-shadow: 8px 10px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 13px;
+}
+.ui-datepicker-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding-left: 12px;
+}
+.ui-datepicker-header .ui-datepicker-prev {
+  position: absolute;
+  top: calc(50% - 8.5px);
+  right: 58px;
+  width: 10px;
+  height: 17px;
+  background-image: url("../assets/images/icons/ic_left--big.svg");
+  color: transparent;
+  overflow: hidden;
+}
+.ui-datepicker-header .ui-datepicker-next {
+  position: absolute;
+  top: calc(50% - 8.5px);
+  right: 17px;
+  width: 10px;
+  height: 17px;
+  background-image: url("../assets/images/icons/ic_right--big.svg");
+  color: transparent;
+  overflow: hidden;
+}
+.ui-datepicker-header .ui-datepicker-title {
+  position: relative;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  letter-spacing: 0.38px;
+  color: #115E67;
+}
+.ui-datepicker-header .ui-datepicker-title:before {
+  content: " ";
+  position: absolute;
+  top: calc(50% - 6px);
+  right: -14px;
+  width: 7px;
+  height: 12px;
+  background-image: url("../assets/images/icons/ic_right--small.svg");
+}
+.ui-datepicker-calendar thead {
+  height: 28px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: bold;
+  color: #3C3C434D;
+  letter-spacing: -0.078px;
+}
+.ui-datepicker-calendar td {
+  width: 40px;
+  text-align: center;
+}
+.ui-datepicker-calendar .ui-state-default {
+  font-size: 20px;
+  line-height: 24px;
+  color: #656565;
+  letter-spacing: 0.38px;
+}
+.ui-datepicker-calendar a.ui-state-default {
+  color: #F2A900;
+}
 .has-float-label {
   position: relative;
   width: 100%;
@@ -908,6 +979,7 @@ p, h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   height: 46px;
+  min-height: 46px;
   width: 100%;
   max-width: 245px;
   border-radius: 10px;
