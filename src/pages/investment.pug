@@ -1,0 +1,45 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title investment
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+    link(rel="stylesheet" type="text/css" href="../styles/investment.css")
+    //link(rel="stylesheet" type="text/css" href="../styles/jquery-ui.min.css")
+
+  body
+
+    +header()
+
+
+
+    main#investment.with-footer.investment
+      .d-flex.flex-column.align-items-center.pb-20.h-100
+        .profile__logo.mb-32
+          +logo(122)
+        .container-shadow.h-100
+          .container-shadow__icon
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M23.72 28.4623L25.481 27.9544L36.084 17.225C36.1676 17.1393 36.2142 17.0241 36.2136 16.9044C36.213 16.7846 36.1654 16.6699 36.081 16.585L35.446 15.9431C35.4049 15.9009 35.3559 15.8673 35.3018 15.8443C35.2476 15.8213 35.1894 15.8093 35.1306 15.809C35.0718 15.8088 35.0135 15.8202 34.9591 15.8427C34.9047 15.8652 34.8554 15.8983 34.814 15.9401L24.239 26.6414L23.719 28.4613L23.72 28.4623ZM36.703 14.6711L37.338 15.3141C38.214 16.201 38.222 17.632 37.354 18.5099L26.428 29.5673L22.664 30.6512C22.4342 30.7155 22.1883 30.686 21.9802 30.5693C21.7721 30.4525 21.6188 30.2579 21.554 30.0282C21.5058 29.8631 21.5051 29.6878 21.552 29.5223L22.647 25.6825L33.544 14.6541C33.7512 14.4455 33.9979 14.2802 34.2696 14.1679C34.5414 14.0556 34.8328 13.9985 35.1268 14C35.4209 14.0015 35.7117 14.0615 35.9823 14.1766C36.2529 14.2916 36.4979 14.4604 36.703 14.6711ZM25.184 15.8241C25.68 15.8241 26.082 16.231 26.082 16.733C26.0828 16.8517 26.0602 16.9693 26.0155 17.0792C25.9707 17.1892 25.9048 17.2892 25.8214 17.3736C25.738 17.458 25.6388 17.5252 25.5294 17.5712C25.42 17.6173 25.3027 17.6413 25.184 17.642H21.592C20.6 17.642 19.796 18.4559 19.796 19.4589V30.3642C19.796 31.3682 20.6 32.1821 21.592 32.1821H32.368C33.36 32.1821 34.165 31.3682 34.165 30.3642V26.7294C34.165 26.2275 34.567 25.8205 35.063 25.8205C35.559 25.8205 35.961 26.2275 35.961 26.7304V30.3642C35.961 32.3721 34.352 34 32.368 34H21.592C19.608 34 18 32.3721 18 30.3642V19.4589C18 17.452 19.608 15.8241 21.592 15.8241H25.184Z" fill="#F2A900"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+          .d-flex.flex-column.align-items-center.w-100.h-100
+            .text-16-16.color-orange.mb-44 Виписка з рахунку
+            .text-13-20.color-858585.mb-12 Оберіть період за який сформувати виписку
+            +input('startDate', 'Початкова дата', 'date', {default: 'calendar', focus: 'calendar--active'})
+            +input('endDate', 'Кінцева дата', 'date', {default: 'calendar', focus: 'calendar--active'})
+            .text-12-16.color-81765E80.mt-20.mb-20 ***З Вашого рахунку автоматично буде знята комісія за надання виписки з пенсійного рахунку згідно підписаних тарифів.
+            button.btn.mt-auto Отримати виписку
+
+
+    +footer()
+
+
+
+
+  script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
+
+  script(src="../scripts/index.js")
+

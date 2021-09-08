@@ -1127,14 +1127,13 @@ p, h1, h2, h3, h4 {
   height: 48px;
 }
 
-.faq {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.contacts__map {
+  width: 291px;
+  height: 170px;
 }
 
-#question_inputGroup {
-  height: 147px;
+.mw-279 {
+  max-width: 279px;
 }
 
-/*# sourceMappingURL=faq.css.map */
+/*# sourceMappingURL=contacts.css.map */

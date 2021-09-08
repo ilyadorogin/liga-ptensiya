@@ -11,7 +11,7 @@ $(function () {
 
   // input
   $('.input-group').each(function () {
-    const input = $(this).find('input');
+    const input = $(this).find('.input-group__control');
     const inputStartValue = input.val();
 
     if (inputStartValue) {
@@ -264,7 +264,7 @@ $(function () {
     });
 
     $('#faq-back-btn').on('click', function () {
-      if (docsListPage.hasClass('d-none')) {
+      if (faqsListPage.hasClass('d-none')) {
         faqsListPage.removeClass('d-none');
         $('[id^=faq-page__]').addClass('d-none');
       } else {
@@ -307,6 +307,14 @@ $(function () {
   // regular payment
   if ($('#regular-payment').length) {
     cardList('.card-list', '.card-list .card');
+
+    listDefault(
+      'regular-payment-main',
+      'regular-payment-page-link',
+      'regular-payment-page__',
+      'regular-payment-back-btn',
+      []
+    );
 
     $('.slick-slider').slick({
       arrows: false,

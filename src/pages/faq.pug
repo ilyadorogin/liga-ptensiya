@@ -175,6 +175,8 @@ html(lang="uk")
               .list__item__suffix
                 .ic_right
 
+        .list__item.text-13-20.color-656565.d-block <span class="color-orange">Не знайшли відповіді на своє запитання?</span> Натисніть тут, щоб перейти у форму та задати питання.
+
 
       // doc inner lists pages
       for faqItem, i in faq
@@ -186,6 +188,23 @@ html(lang="uk")
             for item in faqItem.accordion
               h3= item.label
               div!= item.content
+
+      .faq.h-100.d-none(id='faq-page__' + faq.length)
+        .faq__logo.mt-24.text-center
+          +logo(122)
+        +divider('Задати запитання', 'mt-44 mb-32')
+        .text-14-20.color-6B6B6B Ви маєте можливість у формі нижче, поставити своє запитання та надіслати його нам.
+
+        #question_inputGroup.input-group.w-100
+          label.input-group__label(for='question') Введіть текст запитання...
+          .has-float-label.h-100
+            textarea#question.input-group__control.h-100(name='question')
+
+        .text-14-20.color-6B6B6B.mt-40 Вкажіть <span class="color-orange">e-mail</span> на який надіслати відповідь.
+        +input('email', 'E-mail', 'text')
+
+        .mt-auto.pb-48.pt-28
+          button.btn Відправити запитання
 
 
 
