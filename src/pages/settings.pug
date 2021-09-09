@@ -78,6 +78,7 @@ html(lang="uk")
               button.card__right-button(type='button')
                 .ic_delete
                 .text-12-16.color-orange.mt-8 Видалити
+            .cards-divider.w-100-28
             label.card(for='card-2')
               .card__content
                 .radio-button.radio-button--20
@@ -90,6 +91,7 @@ html(lang="uk")
               button.card__right-button(type='button')
                 .ic_delete
                 .text-12-16.color-orange.mt-8 Видалити
+            .cards-divider.w-100-28
             label.card(for='card-3')
               .card__content
                 .radio-button.radio-button--20
@@ -102,22 +104,25 @@ html(lang="uk")
               button.card__right-button(type='button')
                 .ic_delete
                 .text-12-16.color-orange.mt-8 Видалити
+            .cards-divider.w-100-28
 
           +divider('Інші способи оплати', 'divider--white opacity-50 mt-48 mb-40')
 
-          .settings__other-pay-methods
+          .settings__other-pay-methods.d-flex.flex-column
             label.settings__other-pay-methods__item
               .radio-button.radio-button--20
                 input.radio-button__control(type='radio' name="settings-cards" id="applepay" value="applepay")
                 .radio-button__checkmark
               .settings__other-pay-methods__item__icon.ic_card-apple-pay
               .settings__other-pay-methods__item__text Apple Pay
+            .cards-divider.w-100-28
             label.settings__other-pay-methods__item
               .radio-button.radio-button--20
                 input.radio-button__control(type='radio' name="settings-cards" id="googlepay" value="googlepay")
                 .radio-button__checkmark
               .settings__other-pay-methods__item__icon.ic_card-google-pay
               .settings__other-pay-methods__item__text Google Pay
+            .cards-divider.w-100-28
 
           label.settings__set-default.mt-36.d-flex.align-items-center.w-100
             .radio-button.radio-button--20
@@ -189,4 +194,3 @@ html(lang="uk")
   script(src="../scripts/jquery-ui.min.js")
   script(src="../scripts/jquery-listswipe.js")
   script(src="../scripts/index.js")
-

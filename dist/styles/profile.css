@@ -596,6 +596,16 @@ input.apple-switch:checked:after {
   outline: none;
 }
 
+.cards-divider {
+  align-self: flex-end;
+  width: 100%;
+  height: 1px;
+  background-color: #EEEEEEE5;
+}
+.cards-divider.w-100-28 {
+  width: calc(100% - 28px);
+}
+
 .slick-card-container {
   display: flex;
   justify-content: center;
@@ -861,7 +871,10 @@ input.apple-switch:checked:after {
   width: 147px;
   height: 147px;
   border-radius: 50%;
-  background-color: #fff;
+  background-image: url("../assets/images/clock.gif");
+  background-color: transparent;
+  background-size: 150px 150px;
+  background-position: center;
 }
 .loading-page__circle-wrapper {
   display: flex;
@@ -931,6 +944,15 @@ input.apple-switch:checked:after {
 
 * {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  /* Safari 3.1+ */
+  -moz-user-select: none;
+  /* Firefox 2+ */
+  -ms-user-select: none;
+  /* IE 10+ */
+  user-select: none;
+  /* Standard syntax */
+  outline: 0;
 }
 
 body {
@@ -1023,6 +1045,11 @@ p, h1, h2, h3, h4 {
 
 .text-17-16 {
   font-size: 17px;
+  line-height: 16px;
+}
+
+.text-18-16 {
+  font-size: 18px;
   line-height: 16px;
 }
 
@@ -1162,12 +1189,25 @@ p, h1, h2, h3, h4 {
   color: #858585;
   font-size: 15px;
   line-height: 20px;
+  width: 100%;
 }
 .list__item__suffix {
   display: flex;
   align-items: center;
   margin-left: auto;
   padding-left: 16px;
+}
+.list__item:not(.list__item--no-border) .list__item__label, .list__item:not(.list__item--no-border) .list__item__suffix {
+  position: relative;
+}
+.list__item:not(.list__item--no-border) .list__item__label:before, .list__item:not(.list__item--no-border) .list__item__suffix:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+  height: 1px;
+  width: 100%;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 }
 
 .accordion {
@@ -1237,6 +1277,10 @@ p, h1, h2, h3, h4 {
 }
 .profile .input-group .suffix {
   margin-right: 17px;
+}
+.profile__sum .input-group__control {
+  font-size: 18px;
+  line-height: 16px;
 }
 .profile__tabs-content {
   overflow-y: scroll;
@@ -1369,9 +1413,15 @@ p, h1, h2, h3, h4 {
   position: absolute;
 }
 .bottom-swipe-menu__header {
+  width: 100%;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom-swipe-menu__header div {
   height: 3px;
   width: 76px;
-  margin: 20px auto;
   border-radius: 2px;
   background-color: #115E67;
 }

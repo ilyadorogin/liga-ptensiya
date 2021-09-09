@@ -1,3 +1,4 @@
+
 $(function () {
   let loading; // loading.open(), loading.close()
 
@@ -189,6 +190,10 @@ $(function () {
       }
     });
 
+    // $(document).swiperight(function (e) {
+    //   console.log(e);
+    // })
+
     $('.profile__tabs li:first-child').click(function () {
       activeTab = 0;
       profileTabsContainer.tabs({active: activeTab});
@@ -207,6 +212,8 @@ $(function () {
       const bottomSwipeMenuEl = $('.bottom-swipe-menu');
       const overlay = $('.bottom-swipe-menu .bottom-swipe-menu__overlay');
       const mainBottomPos = $('#profile-main').height();
+      const hOverlay = new Hammer(document.getElementById('bottom-swipe-menu-overlay'));
+      const hHeader = new Hammer(document.getElementById('bottom-swipe-menu-header'));
       const menuHeight = 440;
 
       let opened = false;
@@ -219,24 +226,37 @@ $(function () {
         _overlayShow();
 
         overlay.on('click', function (e) {
-          let openedMenuTopPos = $('#profile').height() - menuHeight;
-
-          if (!opened) {
-            opened = true;
-            bottomSwipeMenuEl.css('top', openedMenuTopPos);
-            _overlayHide();
-          }
+          _openBSM();
+        });
+        hOverlay.on('panup panleft panright', function (e) {
+          _openBSM();
         });
 
         bottomSwipeMenuEl.on('click', function (e) {
           e.stopPropagation();
-        })
+        });
 
         $(document).click(function () {
-          opened = false;
-          bottomSwipeMenuEl.css('top', mainBottomPos);
-          _overlayShow();
+          _closeBSM();
         });
+        hHeader.on('pandown panleft panright', function (e) {
+          _closeBSM();
+        });
+      }
+
+      function _openBSM() {
+        let openedMenuTopPos = $('#profile').height() - menuHeight;
+
+        if (!opened) {
+          opened = true;
+          bottomSwipeMenuEl.css('top', openedMenuTopPos);
+          _overlayHide();
+        }
+      }
+      function _closeBSM() {
+        opened = false;
+        bottomSwipeMenuEl.css('top', mainBottomPos);
+        _overlayShow();
       }
 
 
@@ -418,6 +438,10 @@ $(function () {
 
       // get regularPayment data
       // ...
+    });
+
+    $('.card-list .card .card__right-button').click(function () {
+      modalDelete.open();
     });
 
 

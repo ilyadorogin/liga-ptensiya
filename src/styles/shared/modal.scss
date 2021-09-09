@@ -70,7 +70,10 @@
     width: 147px;
     height: 147px;
     border-radius: 50%;
-    background-color: #fff;
+    background-image: url('../assets/images/clock.gif');
+    background-color: transparent;
+    background-size: 150px 150px;
+    background-position: center;
 
     &-wrapper {
       display: flex;

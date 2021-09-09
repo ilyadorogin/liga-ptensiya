@@ -27,6 +27,13 @@
     }
   }
 
+  &__sum {
+    .input-group__control {
+      font-size: 18px;
+      line-height: 16px;
+    }
+  }
+
   &__tabs-content {
     overflow-y: scroll;
     padding-bottom: 16px;
@@ -197,11 +204,18 @@
   }
 
   &__header {
-    height: 3px;
-    width: 76px;
-    margin: 20px auto;
-    border-radius: 2px;
-    background-color: $color-green;
+    width: 100%;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    div {
+      height: 3px;
+      width: 76px;
+      border-radius: 2px;
+      background-color: $color-green;
+    }
   }
 
   &__content {

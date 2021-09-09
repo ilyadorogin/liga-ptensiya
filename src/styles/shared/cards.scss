@@ -74,6 +74,19 @@
   }
 }
 
+
+.cards-divider {
+  align-self: flex-end;
+  width: 100%;
+  height: 1px;
+  background-color: #EEEEEEE5;
+
+  &.w-100-28 {
+    width: calc(100% - 28px);
+  }
+}
+
+
 .slick-card-container {
   display: flex;
   justify-content: center;
