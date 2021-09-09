@@ -531,6 +531,11 @@ input.apple-switch:checked:after {
   height: 24px;
   background-image: url("../assets/images/icons/ic_done--inactive.svg");
 }
+.ic_faq {
+  width: 26px;
+  height: 26px;
+  background-image: url("../assets/images/icons/ic_faq.svg");
+}
 
 .card-list {
   display: flex;
@@ -868,7 +873,8 @@ input.apple-switch:checked:after {
 }
 
 .header {
-  padding: 14px 10px;
+  padding: 8px 26px 8px 10px;
+  height: 47px;
 }
 .header.header-orange {
   background: #F2A900;
