@@ -8,19 +8,46 @@ html(lang="uk")
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     title login
     link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
-    link(rel="stylesheet" type="text/css" href="../styles/profile.css")
+    link(rel="stylesheet" type="text/css" href="../styles/login.css")
 
 
   body#registration-code
 
-    +header(null)
+    +header()
 
 
     main
       .d-flex.flex-column.align-items-center.w-100.h-100
+        div.d-flex.flex-column.w-100.align-items-center
+          h1.text-h1.mt-32 Реєстрація
+          .registration-phone +38 (097) 345 54 54
+          form.registration-verify.mb-28(name='verify')
+            <div class="inputs">
+            <input type="text" name="n1" maxlength="1">
+            <input type="text" name="n2" maxlength="1">
+            <input type="text" name="n3" maxlength="1">
+            <input type="text" name="n4" maxlength="1">
+            <input type="text" name="n5" maxlength="1">
+            <input type="text" name="n6" maxlength="1">
+            </div>
+          p.text-center.color-858585.text-13-16.mw-249 ведіть код, який надійшов на вказаний номер телефону
+          a.text-14-16.color-orange.fw-bold.mw-197.mt-95.text-center(href='login.html') Не має коду? Натисніть тут і ми повтрно надішлемо.
+
+    #registration-code-modal-1
+      .modal__content.justify-content-between.h-366
+        .modal__close-btn
+        .text-16-16.color-orange.mt-16 Перевірте дані
+        div
+          .text-14-20.color-858585.text-center Надісланий Вам код був веден не вірно. Перевірте вказаний Вами номер телефону.
+          .mt-20.text-16-16.color-6B6B6B.text-center +38 (097) 345 54 54
+        .d-flex.mb-16.flex-column.align-items-center
+          #registration-code-modal-1-accept.text-14-16.fw-bold.color-green Так, все вірно
+          #registration-code-modal-1-cancel.text-14-16.fw-bold.color-orange.mt-32 Ні, редагувати номер
 
 
+    +loading()
 
   script(src="../scripts/jquery-3.6.0.min.js")
+  script(src="../scripts/jquery-ui.min.js")
   script(src="../scripts/index.js")
 

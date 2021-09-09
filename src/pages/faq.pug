@@ -189,7 +189,7 @@ html(lang="uk")
               h3= item.label
               div!= item.content
 
-      .faq.h-100.d-none(id='faq-page__' + faq.length)
+      form.faq.h-100.d-none(id='faq-page__' + faq.length, name='question-form')
         .faq__logo.mt-24.text-center
           +logo(122)
         +divider('Задати запитання', 'mt-44 mb-32')
@@ -207,8 +207,13 @@ html(lang="uk")
           button.btn Відправити запитання
 
 
+    #faq-modal
+      .modal__content.h-270
+        .modal__close-btn
+        .text-16-16.color-orange.text-center.m-auto Ваше запитання успішно надіслано! Чекайте відповідь у найближчий час!
+        .ic_done
 
-
+    +loading()
     +footer()
 
 

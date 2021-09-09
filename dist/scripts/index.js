@@ -1,6 +1,10 @@
-// const pug = require('pug');
-
 $(function () {
+  let loading; // loading.open(), loading.close()
+
+  if ($('#loading-page').length) {
+    loading = Modal('loading-page', 'loading-page-modal');
+  }
+
   // header
   const headerBackButton = $('#header__back-btn');
   if (headerBackButton) {
@@ -34,23 +38,6 @@ $(function () {
     })
   });
 
-  function passwordField(inputGroupSelector) {
-    const suffix = $(`${inputGroupSelector} .suffix`);
-    const input = $(inputGroupSelector).find('input');
-
-    suffix?.on('click', function () {
-      if ($(this).hasClass('ic_eye-hide')) {
-        $(this).removeClass('ic_eye-hide');
-        $(this).addClass('ic_eye-unhide');
-        input.attr('type', 'text');
-      } else {
-        $(this).removeClass('ic_eye-unhide');
-        $(this).addClass('ic_eye-hide');
-        input.attr('type', 'password');
-      }
-    });
-  }
-
   // ============= auth
   passwordField('#login #password_inputGroup');
   passwordField('#reset-password-step2 #newPassword_inputGroup');
@@ -58,75 +45,70 @@ $(function () {
   passwordField('#registration #password_inputGroup');
   passwordField('#registration #passwordCheck_inputGroup');
 
-  // verify
-  const registrationVerifyCodeForm = document.querySelector('[name="verify"]');
-  if (registrationVerifyCodeForm) {
-    const inputs = registrationVerifyCodeForm.querySelectorAll('.inputs input');
+  if ($('#registration').length) {
+    const modalError = Modal('#registration-modal-1');
 
-    function handleInput(e) {
-      // check for data that was inputtted and if there is a next input, focus it
-      const input = e.target;
-      if (input.nextElementSibling && input.value) {
-        input.nextElementSibling.focus();
+    // on register error
+    modalError.click(function () {
+      modalError.close();
+    });
+  }
+
+  if ($('#registration-code').length) {
+    const modalVerify = Modal('#registration-code-modal-1');
+
+    $('#registration-code-modal-1-accept').click(function () {
+      window.location.href = 'registration-success.html';
+    });
+
+    $('#registration-code-modal-1-cancel').click(function () {
+      modalVerify.close();
+    });
+
+    // verify
+    const registrationVerifyCodeForm = document.querySelector('[name="verify"]');
+    if (registrationVerifyCodeForm) {
+      const inputs = registrationVerifyCodeForm.querySelectorAll('.inputs input');
+
+      function handleInput(e) {
+        // check for data that was inputtted and if there is a next input, focus it
+        const input = e.target;
+        if (input.nextElementSibling && input.value) {
+          input.nextElementSibling.focus();
+        }
+        if (!input.nextElementSibling) {
+          submit();
+        }
+
       }
-      if (!input.nextElementSibling) {
-        submit();
+
+      function handlePaste(e) {
+        const paste = e.clipboardData.getData('text');
+        // loop over each input, and populate with the index of that string
+        inputs.forEach((input, i) => {
+          input.value = paste[i] || '';
+        });
       }
 
-    }
+      inputs[0].addEventListener('paste', handlePaste);
 
-    function handlePaste(e) {
-      const paste = e.clipboardData.getData('text');
-      // loop over each input, and populate with the index of that string
-      inputs.forEach((input, i) => {
-        input.value = paste[i] || '';
-      });
-    }
-
-    inputs[0].addEventListener('paste', handlePaste);
-
-    registrationVerifyCodeForm.addEventListener('input', handleInput);
+      registrationVerifyCodeForm.addEventListener('input', handleInput);
 
 
-    function submit() {
-      console.log('submit');
+      function submit() {
+        modalVerify.open();
+      }
     }
   }
 
-  function listDefault(mainPageId, listItemClass, pagesIdPrefix, backBtnId, [mainCallback, ...pagesCallbacks]) {
-    const listPage = $(`#${mainPageId}`);
-    if (listPage.length) {
-      const items = $(`#${mainPageId} .${listItemClass}`);
-      let openedIndex = undefined;
-
-      items.each(function (i) {
-        const itemPage = $(`#${pagesIdPrefix}${i}`);
-        $(this).on('click', function () {
-          listPage.addClass('d-none');
-          itemPage.removeClass('d-none');
-
-          if (typeof mainCallback?.close === 'function') mainCallback.close();
-          if (typeof pagesCallbacks[i]?.open === 'function') mainCallback.open();
-
-          openedIndex = i;
-        });
-      })
-
-      $(`#${backBtnId}`).on('click', function () {
-        if (listPage.hasClass('d-none')) {
-          listPage.removeClass('d-none');
-          $(`[id^=${pagesIdPrefix}]`).addClass('d-none');
-
-          // open/close callback
-          if (typeof pagesCallbacks[openedIndex]?.close === 'function') mainCallback.close();
-          if (typeof mainCallback?.open === 'function') mainCallback.open();
-
-          openedIndex = undefined;
-        } else {
-          window.history.back();
-        }
-      })
-    }
+  if ($('#demo').length) {
+    $('.slick-slider').slick({
+      arrows: false,
+      dots: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: true,
+    });
   }
 
   // profile
@@ -156,6 +138,10 @@ $(function () {
 
 
     // top up
+    const modal1 = Modal('profile-modal-1');
+    const modal2 = Modal('profile-modal-2');
+
+
     const profileTabsContainer = $('#profile-tabs');
     const nextBtn = $('#profile-tabs-next-btn');
     const finishBtn = $('#profile-tabs-finish-btn');
@@ -164,20 +150,55 @@ $(function () {
 
     profileTabsContainer.tabs();
     nextBtn.on('click', () => {
-      if (activeTab < 2) {
+      if (activeTab === 0) {
         tabLinks[activeTab].classList.remove('active');
         tabLinks[activeTab].classList.add('completed');
 
         activeTab++;
         tabLinks[activeTab].classList.add('active');
-        profileTabsContainer.tabs({active: activeTab/*`#profile-tab-${activeTab+1}`*/});
-      }
-      if (activeTab === 2) {
-        tabLinks[activeTab].classList.add('completed');
-        nextBtn.addClass('d-none');
-        finishBtn.removeClass('d-none');
+        profileTabsContainer.tabs({active: activeTab});
+      } else if (activeTab === 1) {
+        modal1.open();
+
+        const modal1Btn = $('#profile-modal-1-accept');
+        modal1Btn.unbind('click');
+        modal1Btn.on('click', function () {
+
+          modal1.close();
+          modal2.open();
+
+          const modal2Btn = $('#profile-modal-2-cancel');
+          modal2Btn.unbind('click');
+          modal2Btn.on('click', function () {
+            // Перехід на сторонню платіжну систему
+            // ...
+
+            modal2.close();
+
+            tabLinks[activeTab].classList.remove('active');
+            tabLinks[activeTab].classList.add('completed');
+            activeTab++;
+            tabLinks[activeTab].classList.add('active');
+            profileTabsContainer.tabs({active: activeTab});
+
+            nextBtn.addClass('d-none');
+            finishBtn.removeClass('d-none');
+            tabLinks[activeTab].classList.add('completed');
+          })
+        })
       }
     });
+
+    $('.profile__tabs li:first-child').click(function () {
+      activeTab = 0;
+      profileTabsContainer.tabs({active: activeTab});
+      tabLinks[0].classList.remove('completed');
+      tabLinks[0].classList.add('active');
+      tabLinks[1].classList.remove('completed');
+      tabLinks[1].classList.remove('active');
+      tabLinks[2].classList.remove('completed');
+      tabLinks[2].classList.remove('active');
+    })
 
     // bottom menu
     bottomSwipeMenu();
@@ -232,8 +253,10 @@ $(function () {
         overlay.css('left', 'unset');
         overlay.css('right', 'unset');
       }
-
     }
+
+
+
 
   }
 
@@ -270,6 +293,16 @@ $(function () {
       } else {
         window.history.back();
       }
+    });
+
+
+    const modal1 = Modal('faq-modal');
+    $('form[name="question-form"]').submit(function (e) {
+      e.preventDefault();
+
+      // отправить вопрос ...
+
+      modal1.open();
     })
   }
 
@@ -302,6 +335,61 @@ $(function () {
     );
 
     cardList('.card-list', '#settings .card-list .card, #settings .settings__other-pay-methods .settings__other-pay-methods__item');
+
+    const modalDelete = Modal('settings-modal-1');
+    const modalDeleteSuccess = Modal('settings-modal-2');
+    const modalSaveSuccess = Modal('settings-modal-3');
+    const modalLogout = Modal('settings-modal-4');
+    const modalShare = Modal('settings-modal-5');
+
+
+    $('.card-list .card').each(function () {
+      const cardId = $(this).attr('for');
+      const deleteButton = $(this).find('.card__right-button');
+
+      deleteButton.click(function () {
+        modalDelete.open();
+      });
+    });
+
+    $('#settings-modal-1-delete').click(function () {
+      modalDelete.close();
+
+      // delete card
+      // ...
+
+      modalDeleteSuccess.open();
+    });
+
+    $('#settings-modal-1-cancel').click(function () {
+      modalDelete.close();
+    });
+
+    $('#settings-save').click(function () {
+      // save settings
+      // ...
+
+      modalSaveSuccess.open();
+    });
+
+    $('#settings-logout').click(function () {
+      modalLogout.open();
+    });
+
+    $('#settings-modal-4-logout').click(function () {
+      // logout
+      // ...
+
+      window.location.href = '../index.html';
+    });
+
+    $('#settings-modal-4-cancel').click(function () {
+      modalLogout.close();
+    });
+
+    $('#settings-share').click(function () {
+      modalShare.open();
+    });
   }
 
   // regular payment
@@ -322,6 +410,37 @@ $(function () {
       slidesToShow: 1,
       slidesToScroll: 1,
       infinite: true,
+    });
+
+    $('.card-list .card .regular-payment__item__content__more').click(function () {
+      modalEdit.open();
+      const regularPaymentId = $(this).closest('label').attr('for');
+
+      // get regularPayment data
+      // ...
+    });
+
+
+    const modalEdit = Modal('regular-payment-modal-1');
+    const modalDelete = Modal('regular-payment-modal-2');
+    const modalDeleteSuccess = Modal('regular-payment-modal-3');
+
+    $('#regular-payment-delete').click(function () {
+      modalEdit.close();
+      modalDelete.open();
+    });
+
+    $('#regular-payment-delete-accept').click(function () {
+      modalDelete.close();
+
+      // delete regular payment
+      // ...
+
+      modalDeleteSuccess.open();
+    });
+
+    $('#regular-payment-delete-cancel').click(function () {
+      modalDelete.close();
     });
   }
 
@@ -344,28 +463,55 @@ $(function () {
       slidesToScroll: 1,
       infinite: true,
     });
+
+    const modal1 = Modal('regular-payment-edit-modal-1');
+    const modal2 = Modal('regular-payment-edit-modal-2');
+    const modal3 = Modal('regular-payment-edit-modal-3');
+
+    $('#regular-payment-edit-save').click(function () {
+      modal1.open();
+    });
+
+    $('#regular-payment-edit-modal-1-accept').click(function () {
+      modal1.close();
+      modal2.open();
+    });
+
+    $('#regular-payment-edit-modal-2-save-btn').click(function () {
+      // $(this).find('.unsaved').addClass('d-none');
+      // $(this).find('.saved').removeClass('d-none');
+      modal2.close();
+
+      // save regular payment
+      // ...
+
+      modal3.open();
+    })
+
   }
 
   // datepicker
-  $.datepicker.regional.uk = {
-    closeText: "Закрити",
-    prevText: "&#x3C;",
-    nextText: "&#x3E;",
-    currentText: "Сьогодні",
-    monthNames: [ "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень" ],
-    monthNamesShort: [ "Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру" ],
-    dayNames: [ "неділя", "понеділок", "вівторок", "середа", "четвер", "п’ятниця", "субота" ],
-    dayNamesShort: [ "нед", "пнд", "вів", "срд", "чтв", "птн", "сбт" ],
-    dayNamesMin: [ "Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
-    weekHeader: "Тиж",
-    dateFormat: "dd.mm.yy",
-    firstDay: 1,
-    isRTL: false,
-    showMonthAfterYear: false,
-    yearSuffix: "",
-  };
-  $.datepicker.setDefaults($.datepicker.regional['uk']);
-  $('.datepicker input').datepicker();
+  if ($.datepicker) {
+    $.datepicker.regional.uk = {
+      closeText: "Закрити",
+      prevText: "&#x3C;",
+      nextText: "&#x3E;",
+      currentText: "Сьогодні",
+      monthNames: [ "Січень", "Лютий", "Березень", "Квітень", "Травень", "Червень", "Липень", "Серпень", "Вересень", "Жовтень", "Листопад", "Грудень" ],
+      monthNamesShort: [ "Січ", "Лют", "Бер", "Кві", "Тра", "Чер", "Лип", "Сер", "Вер", "Жов", "Лис", "Гру" ],
+      dayNames: [ "неділя", "понеділок", "вівторок", "середа", "четвер", "п’ятниця", "субота" ],
+      dayNamesShort: [ "нед", "пнд", "вів", "срд", "чтв", "птн", "сбт" ],
+      dayNamesMin: [ "Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб" ],
+      weekHeader: "Тиж",
+      dateFormat: "dd.mm.yy",
+      firstDay: 1,
+      isRTL: false,
+      showMonthAfterYear: false,
+      yearSuffix: "",
+    };
+    $.datepicker.setDefaults($.datepicker.regional['uk']);
+    $('.datepicker input').datepicker();
+  }
 
   // account statement
   if ($('#account-statement').length) {
@@ -397,8 +543,295 @@ $(function () {
       }
       return date;
     }
+
+    const modal1 = Modal('account-statement-modal-1');
+    const modal2 = Modal('account-statement-modal-2');
+
+    $('#get-account-statement').click(function () {
+      modal1.open();
+      // get account statement
+      // ...
+    });
+
+    $('#account-statement-modal-1-print').click(function () {
+      modal1.close();
+
+      // print account statement
+      // ...
+
+      modal2.open();
+    });
+
+    $('#account-statement-modal-1-save').click(function () {
+      modal1.close();
+
+      // save account statement
+      // ...
+    });
+
   }
 
+
+  // investment
+  if ($('#investment').length) {
+    listDefault(
+      'investment-main',
+      'investment-page-link',
+      'investment-page__',
+      'investment-back-btn',
+      []
+    );
+
+    // charts
+
+    const _chartFund = ChartFund(
+      document.getElementById('chart1'),
+      ['10.18', '02.19', '06.19', '10.19', '02.20', '06.20', '10.20', '02.21'],
+      [0, 4, 7, 13, 23, 20, 28, 35],
+      [0, 3, 4, 2, 5, 8, 9, 17],
+    );
+
+    const chartAsset = document.getElementById('chart2').getContext('2d');
+    const gradient1 = chartAsset.createLinearGradient(0, 0, 0, 250);
+    gradient1.addColorStop(0, 'rgba(242, 169, 0, 1)');
+    gradient1.addColorStop(1, 'rgba(242, 169, 0, 0)');
+    const gradient2 = chartAsset.createLinearGradient(0, 0, 0, 250);
+    gradient2.addColorStop(0, 'rgba(88, 11, 107, 1)');
+    gradient2.addColorStop(1, 'rgba(88, 11, 107, 0)');
+    const gradient3 = chartAsset.createLinearGradient(0, 0, 0, 250);
+    gradient3.addColorStop(0, 'rgba(17, 94, 103, 1)');
+    gradient3.addColorStop(1, 'rgba(255, 255, 255, 0.98)');
+    const gradient4 = chartAsset.createLinearGradient(0, 0, 0, 250);
+    gradient4.addColorStop(0, 'rgba(72, 99, 197, 1)');
+    gradient4.addColorStop(1, 'rgba(255, 255, 255, 1)');
+    const gradient5 = chartAsset.createLinearGradient(0, 0, 0, 250);
+    gradient5.addColorStop(0, 'rgba(243, 48, 224, 0.75)');
+    gradient5.addColorStop(1, 'rgba(255, 255, 255, 1)');
+
+    const _chartAssets = ChartAssets(
+      chartAsset,
+      [
+        {
+          label: 'Облігації внутрішньої державної позики 49,41 %',
+          amount: 49.41,
+          // color: '#F2A900',
+          color: gradient1,
+        },
+        {
+          label: 'Депозити та грошові кошти 27,84 %',
+          amount: 47.83,
+          // color: '#580B6B',
+          color: gradient2,
+        },
+        {
+          label: 'Акції 3,12 %',
+          amount: 3.12,
+          // color: '#4863C5',
+          color: gradient3,
+        },
+        {
+          label: 'Муніціпальні облігації 8,07 %',
+          amount: 8.07,
+          // color: '#F330E0',
+          color: gradient4,
+        },
+        {
+          label: 'Облігації підприємств 11,36 %',
+          amount: 11.36,
+          // color: '#115E67',
+          color: gradient5,
+        },
+      ]
+    )
+
+
+  }
+
+  function ChartFund(
+    element,
+    labels,
+    line1DataPoints,
+    line2DataPoints,
+  ) {
+    const maxValue = Math.ceil(Math.max(...line1DataPoints, ...line2DataPoints) / 10) * 10;
+
+    const data = {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Доходність НФП «Взаємодопомога», %',
+          data: line1DataPoints,
+          borderColor: '#F2A900',
+          fill: false,
+          tension: 0.4,
+        },
+        {
+          label: 'Інфляція, %',
+          data: line2DataPoints,
+          borderColor: '#115E67',
+          fill: false,
+          tension: 0.4
+        }
+      ]
+    };
+
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          title: {
+            display: false,
+          },
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+        },
+        scales: {
+          x: {
+            display: true,
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            display: true,
+            ticks: {
+              stepSize: 5
+            },
+            grid: {
+              display: false
+            },
+            suggestedMin: 0,
+            suggestedMax: maxValue
+          }
+        }
+      },
+    }
+
+    return new Chart(element, config);
+  }
+
+  function ChartAssets(
+    element,
+    data
+  ) {
+    const NUMBER_CFG = {count: data.length, min: 0, max: 100};
+
+    const _data = {
+      labels: data.map(item => item.label),
+      datasets: [
+        {
+          data: data.map(item => item.amount),
+          backgroundColor: data.map(item => item.color),
+        }
+      ]
+    };
+
+    const config = {
+      type: 'doughnut',
+      data: _data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false,
+          },
+          title: {
+            display: false,
+          }
+        }
+      },
+    };
+
+    return new Chart(element, config);
+  }
+
+  function Modal(id, _class) {
+    const m = $('#'+id.replace('#',''));
+
+    m.dialog({
+      classes : {
+        'ui-dialog': 'modal ' + _class ?? '',
+        'ui-dialog-titlebar': 'd-none',
+        // 'ui-dialog-content': 'modal__content',
+      },
+      width: 316,
+      modal: true,
+    });
+    m.dialog('close');
+
+    m.open = () => {
+      m.dialog('open');
+    }
+    m.close = () => {
+      m.dialog('close');
+    }
+
+    m.find('.modal__close-btn').on('click', function () {
+      m.close();
+    });
+
+    return m;
+  }
+
+  function listDefault(mainPageId, listItemClass, pagesIdPrefix, backBtnId, [mainCallback, ...pagesCallbacks]) {
+    const listPage = $(`#${mainPageId}`);
+    if (listPage.length) {
+      const items = $(`#${mainPageId} .${listItemClass}`);
+      let openedIndex = undefined;
+
+      items.each(function (i) {
+        const itemPage = $(`#${pagesIdPrefix}${i}`);
+        $(this).on('click', function () {
+          listPage.addClass('d-none');
+          itemPage.removeClass('d-none');
+
+          if (typeof mainCallback?.close === 'function') mainCallback.close();
+          if (typeof pagesCallbacks[i]?.open === 'function') mainCallback.open();
+
+          openedIndex = i;
+        });
+      })
+
+      $(`#${backBtnId}`).on('click', function () {
+        if (listPage.hasClass('d-none')) {
+          listPage.removeClass('d-none');
+          $(`[id^=${pagesIdPrefix}]`).addClass('d-none');
+
+          // open/close callback
+          if (typeof pagesCallbacks[openedIndex]?.close === 'function') mainCallback.close();
+          if (typeof mainCallback?.open === 'function') mainCallback.open();
+
+          openedIndex = undefined;
+        } else {
+          window.history.back();
+        }
+      })
+    }
+  }
+
+
+  function passwordField(inputGroupSelector) {
+    const suffix = $(`${inputGroupSelector} .suffix`);
+    const input = $(inputGroupSelector).find('input');
+
+    suffix?.on('click', function () {
+      if ($(this).hasClass('ic_eye-hide')) {
+        $(this).removeClass('ic_eye-hide');
+        $(this).addClass('ic_eye-unhide');
+        input.attr('type', 'text');
+      } else {
+        $(this).removeClass('ic_eye-unhide');
+        $(this).addClass('ic_eye-hide');
+        input.attr('type', 'password');
+      }
+    });
+  }
 
 })
 

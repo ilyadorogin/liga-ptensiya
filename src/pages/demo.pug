@@ -1,0 +1,42 @@
+include partial/shared
+
+doctype html
+html(lang="uk")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    title demo
+    link(rel="stylesheet" type="text/css" href="../styles/demo.css")
+    link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
+
+
+  body#demo
+    +header('', true)
+
+    main
+      .demo
+        .slick-slider.mt-32
+          div
+            .w-100.d-flex.justify-content-center
+              img.demo__slick-img(src='../assets/images/demo.png')
+          div
+            .w-100.d-flex.justify-content-center
+              img.demo__slick-img(src='../assets/images/demo.png')
+          div
+            .w-100.d-flex.justify-content-center
+              img.demo__slick-img(src='../assets/images/demo.png')
+
+
+
+        .d-flex.flex-column.align-items-center.mt-48.pb-12
+          a.btn.mw-310(href='../pages/registration.html') Заявка на відкриття рахунку
+          a.mt-32.text-14-16.fw-bold.color-orange(href='../pages/index.html') Вийти
+          a.text-13-20.color-3C3C4399.text-center.mt-20 У Вас досі не має рахунку? Натисніть тут щоб перейти на наш сайт та створити рахунок <svg width="20" height="13" viewBox="0 0 20 13" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 6.5C0 6.30848 0.0752487 6.12481 0.209196 5.98938C0.343142 5.85396 0.524811 5.77788 0.714239 5.77788H17.5603L13.0649 1.23429C12.9985 1.16716 12.9458 1.08745 12.9099 0.999726C12.8739 0.912004 12.8554 0.817983 12.8554 0.723033C12.8554 0.628083 12.8739 0.534063 12.9099 0.44634C12.9458 0.358618 12.9985 0.278911 13.0649 0.211771C13.1313 0.144631 13.2101 0.0913735 13.2969 0.0550377C13.3837 0.0187019 13.4766 0 13.5706 0C13.6645 0 13.7575 0.0187019 13.8442 0.0550377C13.931 0.0913735 14.0098 0.144631 14.0762 0.211771L19.7902 5.98874C19.8567 6.05582 19.9095 6.1355 19.9455 6.22324C19.9815 6.31097 20 6.40502 20 6.5C20 6.59498 19.9815 6.68903 19.9455 6.77676C19.9095 6.8645 19.8567 6.94418 19.7902 7.01126L14.0762 12.7882C14.0098 12.8554 13.931 12.9086 13.8442 12.945C13.7575 12.9813 13.6645 13 13.5706 13C13.4766 13 13.3837 12.9813 13.2969 12.945C13.2101 12.9086 13.1313 12.8554 13.0649 12.7882C12.9985 12.7211 12.9458 12.6414 12.9099 12.5537C12.8739 12.4659 12.8554 12.3719 12.8554 12.277C12.8554 12.182 12.8739 12.088 12.9099 12.0003C12.9458 11.9126 12.9985 11.8328 13.0649 11.7657L17.5603 7.22212H0.714239C0.524811 7.22212 0.343142 7.14604 0.209196 7.01062C0.0752487 6.87519 0 6.69152 0 6.5Z" fill="#115E67" fill-opacity="0.8"/></svg>
+
+    +loading()
+
+    script(src="../scripts/jquery-3.6.0.min.js")
+    //script(src="../scripts/jquery-ui.min.js")
+    script(src="../scripts/slick.min.js")
+    script(src="../scripts/index.js")

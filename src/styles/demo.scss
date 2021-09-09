@@ -1,0 +1,17 @@
+@import "shared/shared";
+
+.demo {
+  &__slick-img {
+    width: 222px;
+    height: 442px;
+  }
+}
+
+.color-3C3C4399 {
+  color: #3C3C4399;
+}
+
+.mw-310 {
+  min-width: 310px;
+}
+

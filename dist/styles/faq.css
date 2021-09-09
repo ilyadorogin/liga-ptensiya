@@ -511,6 +511,26 @@ input.apple-switch:checked:after {
   height: 24px;
   background-image: url("../assets/images/icons/ic_email.svg");
 }
+.ic_finance {
+  width: 24px;
+  height: 24px;
+  background-image: url("../assets/images/icons/ic_finance.svg");
+}
+.ic_arrow-right {
+  width: 23px;
+  height: 15px;
+  background-image: url("../assets/images/icons/ic_arrow-right.svg");
+}
+.ic_done {
+  width: 24px;
+  height: 24px;
+  background-image: url("../assets/images/icons/ic_done.svg");
+}
+.ic_done--inactive {
+  width: 24px;
+  height: 24px;
+  background-image: url("../assets/images/icons/ic_done--inactive.svg");
+}
 
 .card-list {
   display: flex;
@@ -778,6 +798,73 @@ input.apple-switch:checked:after {
 }
 .slick-dots li.slick-active {
   color: #115E67;
+}
+
+.modal__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px 20px;
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+.modal__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  width: 30px;
+  height: 30px;
+  background-image: url("../assets/images/icons/ic_close.svg");
+}
+.modal__topbar {
+  position: absolute;
+  top: 19px;
+  left: calc(50% - 37px);
+  height: 4px;
+  width: 74px;
+  background: #C4C4C4;
+}
+
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #00000040;
+}
+
+.ui-dialog {
+  z-index: 101;
+}
+
+.loading-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(227deg, #F2A900 8.7%, #FFFFFF 118%);
+}
+.loading-page-modal {
+  position: static !important;
+}
+.loading-page__circle {
+  width: 147px;
+  height: 147px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.loading-page__circle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(100% - 214px);
+  margin-bottom: 150px;
 }
 
 .header {
@@ -1135,6 +1222,10 @@ p, h1, h2, h3, h4 {
 
 #question_inputGroup {
   height: 147px;
+}
+
+.h-270 {
+  height: 270px;
 }
 
 /*# sourceMappingURL=faq.css.map */

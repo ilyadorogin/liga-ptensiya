@@ -127,7 +127,44 @@ html(lang="uk")
               input.apple-switch(id='allow-faceid' name='allow-faceid' type='checkbox')
 
 
+    #regular-payment-modal-1
+      .modal__content
+        .modal__close-btn
+        .w-100
+          .mt-16.text-16-16.color-656565 Платіж №123456700
+          .text-14-20.color-979797B0.mt-28 Фонд Взаємодопомога
+          .d-flex
+            .d-flex.flex-column
+              .text-14-20.color-81765E80.mt-8 Cхема:
+              .text-14-20.color-81765E80.mt-8 Період:
+              .text-14-20.color-81765E80.mt-8 Cума:
+            .d-flex.flex-column.ml-20
+              .mt-8.text-14-20.color-858585.fw-bold Індивідуальна
+              .mt-8.text-14-20.color-858585.fw-bold Щомісячно
+              .mt-8.text-14-20.color-orange.fw-bold 1000 грн.
 
+
+          .mt-36.mb-28.d-flex.align-items-center.w-100.justify-content-between
+            a.text-14-20.color-orange.fw-bold(href='regular-payment-edit.html') Редагувати платіж
+            #regular-payment-delete.ic_delete.mr-4
+
+    #regular-payment-modal-2
+      .modal__content.justify-content-between.h-256
+        .modal__close-btn
+        .text-16-16.color-orange.mt-16 Підтвердження дії
+        .mt-8.text-14-20.color-858585.text-center Ви дійсно бажаєте видалити цей регулярний платіж?
+        .d-flex.w-100.justify-content-around.mb-16
+          #regular-payment-delete-accept.text-14-16.fw-bold.color-green Так, видалити
+          #regular-payment-delete-cancel.text-14-16.fw-bold.color-orange Ні, залишити
+
+    #regular-payment-modal-3
+      .modal__content
+        .modal__close-btn
+        .text-16-16.color-orange.mt-80 Ваш регулярний платіж був видален!
+        .ic_done.mt-28.mb-48
+
+
+    +loading()
     +footer()
 
 
@@ -136,6 +173,7 @@ html(lang="uk")
   script(src="../scripts/jquery-3.6.0.min.js")
   script(src="../scripts/jquery-ui.min.js")
   script(src="../scripts/jquery-listswipe.js")
+  script(src="../scripts/slick.min.js")
 
   script(src="../scripts/index.js")
 

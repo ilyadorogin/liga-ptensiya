@@ -13,26 +13,174 @@ html(lang="uk")
 
   body
 
-    +header()
+    +header('investment-back-btn')
 
 
 
     main#investment.with-footer.investment
-      .d-flex.flex-column.align-items-center.pb-20.h-100
+      #investment-main.d-flex.flex-column.align-items-center.pb-20
         .profile__logo.mb-32
           +logo(122)
         .container-shadow.h-100
           .container-shadow__icon
-            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M23.72 28.4623L25.481 27.9544L36.084 17.225C36.1676 17.1393 36.2142 17.0241 36.2136 16.9044C36.213 16.7846 36.1654 16.6699 36.081 16.585L35.446 15.9431C35.4049 15.9009 35.3559 15.8673 35.3018 15.8443C35.2476 15.8213 35.1894 15.8093 35.1306 15.809C35.0718 15.8088 35.0135 15.8202 34.9591 15.8427C34.9047 15.8652 34.8554 15.8983 34.814 15.9401L24.239 26.6414L23.719 28.4613L23.72 28.4623ZM36.703 14.6711L37.338 15.3141C38.214 16.201 38.222 17.632 37.354 18.5099L26.428 29.5673L22.664 30.6512C22.4342 30.7155 22.1883 30.686 21.9802 30.5693C21.7721 30.4525 21.6188 30.2579 21.554 30.0282C21.5058 29.8631 21.5051 29.6878 21.552 29.5223L22.647 25.6825L33.544 14.6541C33.7512 14.4455 33.9979 14.2802 34.2696 14.1679C34.5414 14.0556 34.8328 13.9985 35.1268 14C35.4209 14.0015 35.7117 14.0615 35.9823 14.1766C36.2529 14.2916 36.4979 14.4604 36.703 14.6711ZM25.184 15.8241C25.68 15.8241 26.082 16.231 26.082 16.733C26.0828 16.8517 26.0602 16.9693 26.0155 17.0792C25.9707 17.1892 25.9048 17.2892 25.8214 17.3736C25.738 17.458 25.6388 17.5252 25.5294 17.5712C25.42 17.6173 25.3027 17.6413 25.184 17.642H21.592C20.6 17.642 19.796 18.4559 19.796 19.4589V30.3642C19.796 31.3682 20.6 32.1821 21.592 32.1821H32.368C33.36 32.1821 34.165 31.3682 34.165 30.3642V26.7294C34.165 26.2275 34.567 25.8205 35.063 25.8205C35.559 25.8205 35.961 26.2275 35.961 26.7304V30.3642C35.961 32.3721 34.352 34 32.368 34H21.592C19.608 34 18 32.3721 18 30.3642V19.4589C18 17.452 19.608 15.8241 21.592 15.8241H25.184Z" fill="#F2A900"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
-          .d-flex.flex-column.align-items-center.w-100.h-100
-            .text-16-16.color-orange.mb-44 Виписка з рахунку
-            .text-13-20.color-858585.mb-12 Оберіть період за який сформувати виписку
-            +input('startDate', 'Початкова дата', 'date', {default: 'calendar', focus: 'calendar--active'})
-            +input('endDate', 'Кінцева дата', 'date', {default: 'calendar', focus: 'calendar--active'})
-            .text-12-16.color-81765E80.mt-20.mb-20 ***З Вашого рахунку автоматично буде знята комісія за надання виписки з пенсійного рахунку згідно підписаних тарифів.
-            button.btn.mt-auto Отримати виписку
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M25.6586 15C25.1286 15 24.6204 15.2105 24.2457 15.5852C23.871 15.96 23.6604 16.4682 23.6604 16.9981V17.6642H18.9981C18.4682 17.6642 17.96 17.8747 17.5852 18.2494C17.2105 18.6241 17 19.1324 17 19.6623V30.319C17 30.849 17.2105 31.3572 17.5852 31.7319C17.96 32.1066 18.4682 32.3172 18.9981 32.3172H36.3153C36.8452 32.3172 37.3535 32.1066 37.7282 31.7319C38.1029 31.3572 38.3134 30.849 38.3134 30.319V19.6623C38.3134 19.1324 38.1029 18.6241 37.7282 18.2494C37.3535 17.8747 36.8452 17.6642 36.3153 17.6642H31.653V16.9981C31.653 16.4682 31.4425 15.96 31.0677 15.5852C30.693 15.2105 30.1848 15 29.6549 15H25.6586ZM25.6586 16.3321H29.6549C29.8315 16.3321 30.0009 16.4023 30.1258 16.5272C30.2507 16.6521 30.3209 16.8215 30.3209 16.9981V17.6642H24.9925V16.9981C24.9925 16.8215 25.0627 16.6521 25.1876 16.5272C25.3125 16.4023 25.4819 16.3321 25.6586 16.3321ZM28.1709 25.5422L36.9813 23.1937V30.319C36.9813 30.4957 36.9112 30.6651 36.7863 30.79C36.6614 30.9149 36.4919 30.9851 36.3153 30.9851H18.9981C18.8215 30.9851 18.6521 30.9149 18.5272 30.79C18.4023 30.6651 18.3321 30.4957 18.3321 30.319V23.1924L27.1425 25.5422C27.4795 25.6319 27.834 25.6319 28.1709 25.5422ZM18.9981 18.9963H36.3153C36.4919 18.9963 36.6614 19.0664 36.7863 19.1913C36.9112 19.3163 36.9813 19.4857 36.9813 19.6623V21.815L27.8286 24.2554C27.716 24.2854 27.5975 24.2854 27.4849 24.2554L18.3321 21.815V19.6623C18.3321 19.4857 18.4023 19.3163 18.5272 19.1913C18.6521 19.0664 18.8215 18.9963 18.9981 18.9963Z" fill="#F2A900"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+          .d-flex.flex-column.align-items-center.w-100.mw-500
+            .text-16-16.color-orange.mb-48 Інвестиційний портфель
+            .text-15-20.color-858585.mw-280 Непідприємницьке Товариство Відкритий недержавний пенсійний фонд «Взаємодопомога» був створений 27.07.2004 р. Це один з перших в Україні зареєстрованих НПФ, вкладниками якого може бути будь-яка фізична особа або компанія.
+            +divider('Доходність фонду', 'divider--white opacity-50 mt-48 mb-20')
+            .w-100
+              .d-flex.align-items-center
+                .text-14-20.color-858585.mr-auto <span class="color-green">Річна</span> доходність фонду
+                #investment__year.text-14-20.color-orange Сума + 18.54 %
+              .d-flex.align-items-center.mt-12
+                .text-14-20.color-858585.mr-auto <span class="color-green">Місячна</span> доходність фонду
+                #investment__month.text-14-20.color-orange Сума + 18.54 %
+            +divider('Структура фонду', 'divider--white opacity-50 mt-48 mb-28')
+            .text-14-20.color-858585.mb-8 Доходність фонду та інфляція
+
+            canvas#chart1
+
+            .d-flex.align-items-center.w-100.mt-24
+              .investment__line-orange
+              .text-13-18.color-858585.ml-20 Доходність НФП «Взаємодопомога», %
+            .d-flex.align-items-center.w-100.mt-16
+              .investment__line-green
+              .text-13-18.color-858585.ml-20 Інфляція, %
+
+            +divider('Структура фонду', 'divider--white opacity-50 mt-48 mb-28')
+            .text-14-20.color-858585.mb-24 Структура активів
+
+            .w-50
+              canvas#chart2
+
+            .d-flex.align-items-center.w-100.mt-24
+              .investment__circle.investment__circle--1
+              .text-13-18.color-858585.ml-16 Облігації внутрішньої державної позики 49,41 %
+            .d-flex.align-items-center.w-100.mt-16
+              .investment__circle.investment__circle--2
+              .text-13-18.color-858585.ml-16 Депозити та грошові кошти 27,84 %
+            .d-flex.align-items-center.w-100.mt-16
+              .investment__circle.investment__circle--3
+              .text-13-18.color-858585.ml-16 Акції 3,12 %
+            .d-flex.align-items-center.w-100.mt-16
+              .investment__circle.investment__circle--4
+              .text-13-18.color-858585.ml-16 Муніціпальні облігації 8,07 %
+            .d-flex.align-items-center.w-100.mt-16
+              .investment__circle.investment__circle--5
+              .text-13-18.color-858585.ml-16 Облігації підприємств 11,36 %
+
+            .investment-page-link.mt-32.d-flex.align-items-center.align-self-end
+              .text-14-16.color-81765E80.mr-16 Переглянути структуру детальніше
+              .ic_arrow-right
+
+            +divider('Додаткова інформація', 'divider--white opacity-50 mt-48 mb-24')
+            .text-16-16.color-orange.align-self-start Коментар керуючого активами
+            .text-15-20.color-858585.align-self-start.mt-12 Березень був досить складним для бюджету, оскільки за внутрішнім боргом потрібно було сплатити близько 45 млрд. грн. погашень. Тому Мінфін встановлював обмеження на обсяги розміщень ОВДП з погашенням цього року. Як наслідок...
+            a.mt-4.d-flex.align-items-center.align-self-end(href='#')
+              .text-12-16.color-81765E80.mr-16 Читати далі
+              .ic_arrow-right
+
+      #investment-page__0.d-flex.flex-column.align-items-center.pb-20.d-none
+        .profile__logo.mb-32
+          +logo(122)
+        .container-shadow.h-100
+          .container-shadow__icon
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#filter0_d)"><circle cx="28" cy="24" r="24" fill="white"/><circle cx="28" cy="24" r="23.5" stroke="#F2A900"/></g><path d="M37.2099 27.89C36.5737 29.3944 35.5787 30.7202 34.3118 31.7513C33.0449 32.7823 31.5447 33.4874 29.9424 33.8047C28.34 34.1221 26.6843 34.0421 25.1201 33.5718C23.5558 33.1014 22.1305 32.255 20.9689 31.1066C19.8073 29.9582 18.9447 28.5427 18.4565 26.9839C17.9684 25.4251 17.8695 23.7704 18.1685 22.1646C18.4675 20.5587 19.1554 19.0506 20.172 17.772C21.1885 16.4934 22.5028 15.4833 23.9999 14.83" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 24C38 22.6868 37.7413 21.3864 37.2388 20.1732C36.7362 18.9599 35.9997 17.8575 35.0711 16.9289C34.1425 16.0003 33.0401 15.2638 31.8268 14.7612C30.6136 14.2587 29.3132 14 28 14V24H38Z" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><defs><filter id="filter0_d" x="0" y="0" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feColorMatrix type="matrix" values="0 0 0 0 0.766667 0 0 0 0 0.76475 0 0 0 0 0.76475 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter></defs></svg>
+          .d-flex.flex-column.align-items-center.w-100
+            .investment__table
+              .investment__table__head.investment__table__head--color-1
+                div Облігації внутрішньої державної позики
+                div 49,41%
+              .investment__table__body
+                .investment__table__body__row
+                  div ОВДП UA4000201256
+                  div 22,28%
+                .investment__table__body__row
+                  div ОВДП UA4000200885
+                  div 11,53%%
+                .investment__table__body__row
+                  div ОВДП UA4000204150
+                  div 9,27%
+                .investment__table__body__row
+                  div ОВДП UA4000173371
+                  div 4,46%
+                .investment__table__body__row
+                  div ОВДП UA4000204986
+                  div 1,12%
+                .investment__table__body__row
+                  div ОВДП UA4000206460
+                  div 0,75%
+                .investment__table__body__row
+                  div Облігації підприємств
+                  div 11,36%
+
+            .investment__table.mt-48
+              .investment__table__head.investment__table__head--color-2
+                div Депозити та грошові кошти
+                div 27,84%
+              .investment__table__body
+                .investment__table__body__row
+                  div АТ “АЛЬФА-БАНК”
+                  div 9,58%
+                .investment__table__body__row
+                  div АТ “УКРЕКСІМБАНК”
+                  div 8,92%
+                .investment__table__body__row
+                  div АТ “ТАСКОМБАНК”
+                  div 8,92%
+                .investment__table__body__row
+                  div АТ “БАНК АВАНГАРД”
+                  div 0,42%
+                .investment__table__body__row
+                  div АТ “УКРСИББАНК”
+                  div 0,00%
+
+            .investment__table.mt-48
+              .investment__table__head.investment__table__head--color-3
+                div Акції
+                div 3,12%
+              .investment__table__body
+                .investment__table__body__row
+                  div ПАТ “МОТОР СІЧ”
+                  div 3,12%
+
+            .investment__table.mt-48
+              .investment__table__head.investment__table__head--color-4
+                div Муніципальні облігації
+                div 8,07%
+              .investment__table__body
+                .investment__table__body__row
+                  div ЛЬВІВСЬКА МІСЬКА РАДА
+                  div 4,09%
+              .investment__table__body
+                .investment__table__body__row
+                  div ХАРКІВСЬКА МІСЬКА РАДА
+                  div 3,97%
+
+            .investment__table.mt-48
+              .investment__table__head.investment__table__head--color-5
+                div Облігації підприємств державної позики
+                div 11,36%
+              .investment__table__body
+                .investment__table__body__row
+                  div ТОВ “БЕЗПЕЧНЕ АГЕНСТВО НЕОБХІДНИХ КРЕДИТІВ”
+                  div 4,86%
+              .investment__table__body
+                .investment__table__body__row
+                  div ТОВ “АЛЬФА-ЛІЗИНГ УКРАЇНА”
+                  div 4,86%
+              .investment__table__body
+                .investment__table__body__row
+                  div ПАТ “УКРПОШТА”
+                  div 2,61%
+
+            .d-flex.justify-content-between.w-100.pl-14.pr-18.mt-48
+              .text-14-20.color-orange Дебіторська заборгованість
+              .text-14-20.color-orange.ml-16 0,20%
 
 
+
+    +loading()
     +footer()
 
 
@@ -40,6 +188,7 @@ html(lang="uk")
 
   script(src="../scripts/jquery-3.6.0.min.js")
   script(src="../scripts/jquery-ui.min.js")
+  script(src="../scripts/chartsjs/chart.js")
 
   script(src="../scripts/index.js")
 

@@ -116,11 +116,43 @@ html(lang="uk")
                   input.radio-button__control(type='radio' name="regular-payment-schedule" id="year" value="year")
                   .radio-button__checkmark
 
-          button.btn.w-100.mt-48 Створити регулярний платіж
+          button#regular-payment-edit-save.btn.w-100.mt-48 Створити регулярний платіж
 
 
+    #regular-payment-edit-modal-1
+      .modal__content.justify-content-around.h-328
+        .modal__topbar
+        .modal__close-btn
+        .text-16-16.color-orange Шановний учасник!
+        .text-14-20.color-6B6B6B.text-center Звертаємо Вашу увагу, що поповнення пенсійного рахунку виконується за допомогою платіжного оператора. Ця послуга платна і буде знята комісія у розмірі ...%.
+        #regular-payment-edit-modal-1-accept.d-flex.justify-content-center.align-items-center
+          .text-17-16.color-orange Прийняти
+          .ic_done.ml-20
 
+    #regular-payment-edit-modal-2
+      .modal__content.justify-content-around.h-328
+        .modal__topbar
+        .modal__close-btn
+        .w-100
+          .text-14-20.color-858585.mb-12 Вкажіть дату початку для створення регулярного платежу
+          +input('startDate', 'Початкова дата', 'date', {default: 'calendar', focus: 'calendar--active'})
+        #regular-payment-edit-modal-2-save-btn
+          .unsaved
+            .d-flex.justify-content-center.align-items-center
+              .text-17-16.color-orange Зберегти
+              .ic_done--inactive.ml-20
+          .saved.d-none
+            .d-flex.justify-content-center.align-items-center
+              .text-17-16.color-orange Збережена
+              .ic_done.ml-20
 
+    #regular-payment-edit-modal-3
+      .modal__content
+        .modal__close-btn
+        .text-16-16.color-orange.mt-80 Ви налаштували регулярний платіж на свій пенсійний рахунок!
+        .ic_done.mt-28.mb-48
+
+    +loading()
     +footer()
 
 

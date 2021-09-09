@@ -1,0 +1,117 @@
+@import "shared/shared";
+
+.investment {
+  &__line {
+    &-orange, &-green {
+      width: 67px;
+      height: 3px;
+    }
+
+    &-orange {
+      background-color: $color-orange;
+    }
+    &-green {
+      background-color: $color-green;
+    }
+  }
+
+  &__circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    &--1 {
+      background: linear-gradient(126.02deg, #F2A900 6.37%, rgba(242, 169, 0, 0) 100%);
+    }
+    &--2 {
+      background: linear-gradient(118.47deg, #580B6B 0%, rgba(88, 11, 107, 0) 100%);
+    }
+    &--3 {
+      background: linear-gradient(120.61deg, #4863C5 0%, #FFFFFF 115.92%);
+    }
+    &--4 {
+      background: linear-gradient(120.55deg, rgba(243, 48, 224, 0.75) 0%, #FFFFFF 117.75%);
+    }
+    &--5 {
+      background: linear-gradient(120.19deg, #115E67 3.06%, rgba(255, 255, 255, 0.98) 109.6%);
+    }
+  }
+
+  &__table {
+    width: 100%;
+
+    &__head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 14px 14px 13px 18px;
+      border-radius: 8px;
+
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: bold;
+      color: #fff;
+
+      :last-child {
+        margin-left: 16px;
+      }
+
+      &--color {
+        &-1 {
+          background: linear-gradient(126.02deg, #F2A900 6.37%, rgba(242, 169, 0, 0) 100%);
+        }
+        &-2 {
+          background: linear-gradient(118.47deg, #580B6B 0%, rgba(88, 11, 107, 0) 100%);
+        }
+        &-3 {
+          background: linear-gradient(120.61deg, #4863C5 0%, #FFFFFF 115.92%);
+        }
+        &-4 {
+          background: linear-gradient(120.55deg, rgba(243, 48, 224, 0.75) 0%, #FFFFFF 117.75%);
+        }
+        &-5 {
+          background: linear-gradient(120.19deg, #115E67 3.06%, rgba(255, 255, 255, 0.98) 109.6%);
+        }
+      }
+    }
+
+    &__body {
+      padding: 0 14px 0 18px;
+
+      font-size: 14px;
+      line-height: 18px;
+      color: #858585;
+
+      &__row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 8px;
+
+        :last-child {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+
+
+.mw-280 {
+  max-width: 280px;
+}
+
+.mw-500 {
+  max-width: 500px;
+}
+
+.pl-14 {
+  padding-left: 14px;
+}
+
+.pr-18 {
+  padding-right: 18px;
+}
+

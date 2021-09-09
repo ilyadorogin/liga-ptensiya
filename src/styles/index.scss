@@ -1,4 +1,237 @@
-p {
+@import "shared/shared";
+
+$animation-duration: 3s;
+
+main {
+  height: 100vh;
+  width: 100vw;
+  padding: 16px 10px;
+
+  //background-image: url("../assets/images/gradient.png");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  background: linear-gradient(227deg, #F2A900 8.7%, #FFFFFF 118%);
+
+}
+
+.index {
   width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+
+  .wrapper {
+    position: relative;
+    width: 310px;
+    height: 310px;
+  }
+  .rectangle1 {
+    position: absolute;
+    top: 31px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+    background-color: #F2A900;
+
+    animation-name: first-rectangle;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+  }
+  .rectangle2 {
+    position: absolute;
+    top: 125px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+    background-color: #115E67;
+
+    animation-name: second-rectangle;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+  }
+  .rectangle3 {
+    position: absolute;
+    top: 219px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+    background-color: #fff;
+
+    animation-name: third-rectangle;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+  }
+
+  .rectangle4 {
+    position: absolute;
+    overflow: hidden;
+    height: 48px;
+    top: 200px;
+    left: 60px;
+
+    animation-name: fourth-rectangle;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+  }
+
+  .index__buttons-container {
+    animation-name: buttons-container;
+    animation-duration: $animation-duration;
+    animation-fill-mode: forwards;
+  }
+
+
+}
+
+.color-8E8E8E {
+  color: #8E8E8E;
+}
+
+@keyframes buttons-container {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes first-rectangle {
+  0% {
+    top: 31px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+  }
+  20% {
+    top: 31px;
+    left: 195px;
+    width: 60px;
+    height: 60px;
+  }
+  40% {
+    top: 90px;
+    left: 195px;
+    width: 100px;
+    height: 100px;
+  }
+  60% {
+    top: 41px;
+    left: 55px;
+    width: 100px;
+    height: 100px;
+  }
+  80% {
+    top: 40px;
+    left: 40px;
+    width: 230px;
+    height: 230px;
+  }
+  100% {
+    top: 40px;
+    left: 40px;
+    width: 230px;
+    height: 230px;
+  }
+}
+
+@keyframes second-rectangle {
+  0% {
+    top: 125px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+  }
+  20% {
+    top: 125px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+  }
+  40% {
+    top: 75px;
+    left: 55px;
+    width: 35px;
+    height: 35px;
+  }
+  60% {
+    top: 60px;
+    left: 240px;
+    width: 25px;
+    height: 25px;
+  }
+  80% {
+    top: 270px;
+    left: 30px;
+    width: 25px;
+    height: 25px;
+  }
+  100% {
+    top: 270px;
+    left: 15px;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@keyframes third-rectangle {
+  0% {
+    top: 219px;
+    left: 125px;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  17% {
+    top: 219px;
+    left: 55px;
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  34% {
+    top: 219px;
+    left: 55px;
+    width: 70px;
+    height: 70px;
+    opacity: 1;
+  }
+  51% {
+    top: 254px;
+    left: 140px;
+    width: 35px;
+    height: 35px;
+    opacity: 1;
+  }
+  68% {
+    top: 200px;
+    left: 60px;
+    width: 48px;
+    height: 48px;
+    opacity: 1;
+  }
+  100% {
+    top: 200px;
+    left: 200px;
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+  }
+}
+
+@keyframes fourth-rectangle {
+  0% {
+    width: 0;
+  }
+  68% {
+    width: 0;
+  }
+  100% {
+    width: 115px;
+  }
 }
 

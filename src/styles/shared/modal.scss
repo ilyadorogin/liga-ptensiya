@@ -1,0 +1,84 @@
+.modal {
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px 24px 20px;
+    background: #FFFFFF;
+    border-radius: 15px;
+
+  }
+
+  &__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+
+    width: 30px;
+    height: 30px;
+    background-image: url('../assets/images/icons/ic_close.svg');
+  }
+
+  &__topbar {
+    position: absolute;
+    top: 19px;
+    left: calc(50% - 37px);
+
+    height: 4px;
+    width: 74px;
+
+    background: #C4C4C4;
+  }
+}
+
+.ui-widget-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background-color: #00000040;
+}
+
+.ui-dialog {
+  //position: static !important;
+  z-index: 101;
+}
+
+
+.loading-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 102;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: linear-gradient(227deg, #F2A900 8.7%, #FFFFFF 118%);
+
+  &-modal {
+    position: static !important;
+  }
+
+  &__circle {
+    width: 147px;
+    height: 147px;
+    border-radius: 50%;
+    background-color: #fff;
+
+    &-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: calc(100% - 214px);
+      margin-bottom: 150px;
+    }
+  }
+}

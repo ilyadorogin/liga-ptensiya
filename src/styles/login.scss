@@ -73,6 +73,12 @@ main {
   color: rgba(129, 118, 94, 0.5);
 }
 
+#registration-modal-1 {
+  .modal__content {
+    padding: 0;
+  }
+}
+
 
 
 
@@ -103,3 +109,8 @@ main {
 .mw-249 {
   max-width: 249px;
 }
+
+.h-366 {
+  height: 366px;
+}
+

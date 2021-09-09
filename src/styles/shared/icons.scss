@@ -156,4 +156,28 @@
     height: 24px;
     background-image: url('../assets/images/icons/ic_email.svg');
   }
+
+  &_finance {
+    width: 24px;
+    height: 24px;
+    background-image: url('../assets/images/icons/ic_finance.svg');
+  }
+
+  &_arrow-right {
+    width: 23px;
+    height: 15px;
+    background-image: url('../assets/images/icons/ic_arrow-right.svg');
+  }
+
+  &_done {
+    width: 24px;
+    height: 24px;
+    background-image: url('../assets/images/icons/ic_done.svg');
+  }
+
+  &_done--inactive {
+    width: 24px;
+    height: 24px;
+    background-image: url('../assets/images/icons/ic_done--inactive.svg');
+  }
 }
