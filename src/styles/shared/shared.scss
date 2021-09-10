@@ -190,6 +190,8 @@ p, h1, h2, h3, h4 {
   text-align: center;
   cursor: pointer;
   outline: none;
+  font-size: 17px;
+  line-height: 16px;
 
   &:not([disabled]) {
     background: $color-orange;
@@ -268,7 +270,8 @@ p, h1, h2, h3, h4 {
   &__item {
     display: flex;
     align-items: center;
-    padding: 20px 0;
+    margin-top: 10px;
+    //padding: 20px 0;
     //border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 
     &__prefix {
@@ -290,19 +293,16 @@ p, h1, h2, h3, h4 {
       padding-left: 16px;
     }
 
-    &:not(.list__item--no-border) {
-      .list__item__label, .list__item__suffix {
-        position: relative;
+    &__content {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      padding: 10px 0;
+    }
 
-        &:before {
-          content : "";
-          position: absolute;
-          left    : 0;
-          bottom  : -20px;
-          height  : 1px;
-          width   : 100%;
-          border-bottom:1px solid rgba(238, 238, 238, 0.9);
-        }
+    &:not(.list__item--no-border) {
+      .list__item__content {
+        border-bottom:1px solid rgba(238, 238, 238, 0.9);
       }
     }
   }
@@ -374,4 +374,8 @@ p, h1, h2, h3, h4 {
     width: 48px;
     height: 48px;
   }
+}
+
+.bb-grey {
+  border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 }

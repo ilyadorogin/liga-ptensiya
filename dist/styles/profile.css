@@ -622,7 +622,7 @@ input.apple-switch:checked:after {
   box-shadow: 2px 8px 15px rgba(164, 142, 142, 0.25);
   background: #fff;
 }
-.card-big:after {
+.card-big:not(.bg-card-clear):after {
   content: " ";
   position: absolute;
   right: -45px;
@@ -1117,6 +1117,8 @@ p, h1, h2, h3, h4 {
   text-align: center;
   cursor: pointer;
   outline: none;
+  font-size: 17px;
+  line-height: 16px;
 }
 .btn:not([disabled]) {
   background: #F2A900;
@@ -1177,7 +1179,7 @@ p, h1, h2, h3, h4 {
 .list__item {
   display: flex;
   align-items: center;
-  padding: 20px 0;
+  margin-top: 10px;
 }
 .list__item__prefix {
   display: flex;
@@ -1197,16 +1199,13 @@ p, h1, h2, h3, h4 {
   margin-left: auto;
   padding-left: 16px;
 }
-.list__item:not(.list__item--no-border) .list__item__label, .list__item:not(.list__item--no-border) .list__item__suffix {
-  position: relative;
+.list__item__content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 10px 0;
 }
-.list__item:not(.list__item--no-border) .list__item__label:before, .list__item:not(.list__item--no-border) .list__item__suffix:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -20px;
-  height: 1px;
-  width: 100%;
+.list__item:not(.list__item--no-border) .list__item__content {
   border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 }
 
@@ -1258,6 +1257,10 @@ p, h1, h2, h3, h4 {
   left: calc(50% - 24px);
   width: 48px;
   height: 48px;
+}
+
+.bb-grey {
+  border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 }
 
 .profile__balance {
@@ -1368,7 +1371,7 @@ p, h1, h2, h3, h4 {
   position: relative;
   width: 24px;
   height: 24px;
-  border: 1px solid rgba(242, 169, 0, 0.8);
+  border: 1px solid rgba(129, 118, 94, 0.5);
   border-radius: 50%;
 }
 .profile__cards__card__checkmark:after {

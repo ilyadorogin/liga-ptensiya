@@ -104,7 +104,7 @@
   background: #fff;
 
 
-  &:after {
+  &:not(.bg-card-clear):after {
     content: " ";
     position: absolute;
     right: -45px;

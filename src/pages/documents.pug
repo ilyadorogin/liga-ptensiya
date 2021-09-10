@@ -87,12 +87,13 @@ html(lang="uk")
 
         .list(data-listname='docs')
           for doc, i in docs
-            .list__item(data-list-item-index=i)
+            .list__item.mt-20(data-list-item-index=i)
               .list__item__prefix
                 .ic_doc
-              .list__item__label= doc.label
-              .list__item__suffix
-                .ic_right
+              .list__item__content
+                .list__item__label= doc.label
+                .list__item__suffix
+                  .ic_right
 
 
       // doc inner lists pages
@@ -107,9 +108,10 @@ html(lang="uk")
             for item in doc.items
               a(href=item.link)
                 .list__item
-                  .list__item__label= item.label
-                  .list__item__suffix
-                    .ic_right
+                  .list__item__content
+                    .list__item__label= item.label
+                    .list__item__suffix
+                      .ic_right
 
 
           if doc.additionalLists
@@ -119,9 +121,10 @@ html(lang="uk")
                 for item in additionalList.items
                   a(href=item.link)
                     .list__item
-                      .list__item__label= item.label
-                      .list__item__suffix
-                        .ic_right
+                      .list__item__content
+                        .list__item__label= item.label
+                        .list__item__suffix
+                          .ic_right
 
 
     +loading()

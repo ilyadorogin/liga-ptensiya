@@ -21,17 +21,19 @@ html(lang="uk")
           h1.text-19-16.color-6B6B6B.mt-62.mb-48 Налаштування
           .list.w-100
             .list__item
-              .list__item__prefix
+              .list__item__prefix.pb-10
                 .ic_phone
-              .list__item__label Системні налаштування
-              .list__item__suffix
-                .ic_right
+              .list__item__content.pb-20
+                .list__item__label Системні налаштування
+                .list__item__suffix
+                  .ic_right
             .list__item
-              .list__item__prefix
+              .list__item__prefix.pb-10
                 .ic_side-settings
-              .list__item__label Налаштування способів оплати
-              .list__item__suffix
-                .ic_right
+              .list__item__content.pb-20
+                .list__item__label Налаштування способів оплати
+                .list__item__suffix
+                  .ic_right
 
       #settings-page__0.d-none
         .settings.d-flex.flex-column.align-items-center
@@ -40,23 +42,27 @@ html(lang="uk")
             .list__item
               .list__item__prefix
                 .ic_faceid
-              .list__item__label Дозволити Face ID
-              .list__item__suffix
-                input.apple-switch(id='allow-faceid' name='allow-faceid' type='checkbox')
+              .list__item__content
+                .list__item__label Дозволити Face ID
+                .list__item__suffix
+                  input.apple-switch(id='allow-faceid' name='allow-faceid' type='checkbox')
             .list__item
               .list__item__prefix
                 .ic_notification
-              .list__item__label Дозволити сповіщення
-              .list__item__suffix
-                input.apple-switch(id='allow-notifications' name='allow-notifications' type='checkbox')
+              .list__item__content
+                .list__item__label Дозволити сповіщення
+                .list__item__suffix
+                  input.apple-switch(id='allow-notifications' name='allow-notifications' type='checkbox')
             #settings-share.list__item
-              .list__item__prefix
+              .list__item__prefix.pb-10
                 .ic_share
-              .list__item__label Розповісти друзям
+              .list__item__content.pb-20
+                .list__item__label Розповісти друзям
             #settings-logout.list__item
-              .list__item__prefix
+              .list__item__prefix.pb-10
                 .ic_logout
-              .list__item__label Вийти
+              .list__item__content.pb-20
+                .list__item__label Вийти
 
 
 

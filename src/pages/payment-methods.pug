@@ -5,7 +5,7 @@ html(lang="uk")
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
+    meta(name="viewport", content="width=device- width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no")
     title payment-methods
     link(rel="stylesheet" type="text/css" href="../styles/bootstrap-utilities.css")
     link(rel="stylesheet" type="text/css" href="../styles/regular-payment.css")
@@ -17,7 +17,7 @@ html(lang="uk")
 
 
     main#payment-methods.with-footer.payment-methods
-      .d-flex.flex-column.align-items-center.pb-20
+      .d-flex.flex-column.align-items-center
         .profile__logo.mb-32
           +logo(122)
         .container-shadow
@@ -27,18 +27,18 @@ html(lang="uk")
             .text-16-16.color-orange.mb-32 Cпособи поповнення
             .text-13-20.color-858585.mb-32 Ознайомитись з доступними способами поповнення Вашого пенсійного рахунку
             .d-flex.flex-column.w-100.pl-20
-              .d-flex.align-items-center.pt-12.pb-12
+              .d-flex.align-items-center.pt-12.pb-14.mr-28.bb-grey
                 .ic_card-apple-pay.mr-16
                 .text-14-16.color-656565 Apple Pay
-              .d-flex.align-items-center.pt-12.pb-12
+              .d-flex.align-items-center.pt-12.pb-14.mr-28.bb-grey
                 .ic_card-google-pay.mr-16
                 .text-14-16.color-656565 Google Pay
           +divider('Інші способи оплати', 'divider--white opacity-50 mt-32 mb-32')
           .w-100
-            p.text-14-16.color-656565.mb-24 Платіжний термінал за реквізитами
-            p.text-14-16.color-656565.mb-24 Будь-який клієнт банк за реквізитами
-            p.text-14-16.color-656565.mb-24 За заявою про перерохування частини Вашої заробітньої платні в компанії, якій працюєте.
-            p.text-14-16.color-656565.mb-24 Платіжне доручення у відділені банку
+            p.text-14-16.color-656565.mb-12.pb-12.mr-28.bb-grey Платіжний термінал за реквізитами
+            p.text-14-16.color-656565.mb-12.pb-12.mr-28.bb-grey Будь-який клієнт банк за реквізитами
+            p.text-14-16.color-656565.mb-12.pb-12.mr-28.bb-grey За заявою про перерохування частини Вашої заробітньої платні в компанії, якій працюєте.
+            p.text-14-16.color-656565.mb-12.pb-12.mr-28.bb-grey Платіжне доручення у відділені банку
             p.text-14-16.color-656565 Через будь-якого платіжного оператора за реквізитами
 
     +loading()

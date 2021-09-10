@@ -171,9 +171,10 @@ html(lang="uk")
         .list(data-listname='faq')
           for item, i in faq
             .list__item(data-list-item-index=i)
-              .list__item__label= item.label
-              .list__item__suffix
-                .ic_right
+              .list__item__content
+                .list__item__label= item.label
+                .list__item__suffix
+                  .ic_right
 
         .list__item.text-13-20.color-656565.d-block <span class="color-orange">Не знайшли відповіді на своє запитання?</span> Натисніть тут, щоб перейти у форму та задати питання.
 
