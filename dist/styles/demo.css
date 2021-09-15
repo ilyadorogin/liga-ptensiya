@@ -1220,6 +1220,7 @@ p, h1, h2, h3, h4 {
   font-size: 15px;
   line-height: 20px;
   color: #6B6B6B;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.9);
 }
 .accordion .ui-accordion-header-icon {
   position: absolute;
@@ -1264,8 +1265,23 @@ p, h1, h2, h3, h4 {
 }
 
 .demo__slick-img {
-  width: 222px;
+  width: 300px;
   height: 442px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.demo__slick-img-1 {
+  background-image: url("../assets/images/demo-1.png");
+}
+.demo__slick-img-2 {
+  background-image: url("../assets/images/demo-2.png");
+}
+.demo__slick-img-3 {
+  background-image: url("../assets/images/demo-3.png");
+}
+.demo__slick-img-4 {
+  background-image: url("../assets/images/demo-4.png");
 }
 
 .color-3C3C4399 {

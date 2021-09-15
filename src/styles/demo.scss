@@ -2,8 +2,25 @@
 
 .demo {
   &__slick-img {
-    width: 222px;
+    width: 300px;
     height: 442px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+
+    &-1 {
+      background-image: url("../assets/images/demo-1.png");
+    }
+    &-2 {
+      background-image: url("../assets/images/demo-2.png");
+    }
+    &-3 {
+      background-image: url("../assets/images/demo-3.png");
+    }
+    &-4 {
+      background-image: url("../assets/images/demo-4.png");
+    }
   }
 }
 
